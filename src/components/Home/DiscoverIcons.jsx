@@ -42,7 +42,7 @@ export default function DiscoverIcons() {
   return (
     <div
       ref={containerRef}
-      className="fixed bottom-5 left-1/2 -translate-x-1/2 w-[90vw] max-w-sm flex flex-col-reverse items-center gap-3 z-50 font-sans"
+      className="fixed bottom-5 left-1/2 -translate-x-1/2 w-[90vw] max-w-sm flex flex-col-reverse items-center gap-3 z-60 font-sans"
     >
       {/* Main Button */}
       <button

@@ -122,7 +122,7 @@ const ProductCarousel = () => {
 
   return (
     
-    <div className="relative  bg-gradient-to-br from-rose-300 via-amber-50 to-orange-300 min-h-screen flex items-center justify-center font-sans">
+    <div className=" sticky top-0 left-0 relative  bg-gradient-to-tr from-rose-300 via-amber-50 to-orange-300 min-h-screen flex items-center justify-center font-sans">
       <div
         className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden pt-16" // Added padding-top to avoid overlap
       >

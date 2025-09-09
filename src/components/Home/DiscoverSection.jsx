@@ -15,7 +15,7 @@ const IconCard = ({ imageUrl, title, description }) => (
       />
     </div>
     <div className="p-4">
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
+      <h3 className="text-lg text-black font-semibold mb-2">{title}</h3>
       <p className="text-gray-600 text-sm">{description}</p>
     </div>
   </div>
@@ -25,27 +25,27 @@ const IconCard = ({ imageUrl, title, description }) => (
 export default function App() {
   const icons = [
     {
-      imageUrl: 'https://placehold.co/400x600/f8f8f8/333?text=Serpenti',
+      imageUrl: 'https://media.bulgari.com/image/upload/c_fill,h_1600,w_1600/q_auto/f_auto/v1/collection/dev-magnificent-icons/serpenti/01-carousel-ok_i8cicx',
       title: 'Serpenti',
       description: 'An icon of infinite transformation, crafted with mastery and reinvented many times over since 1948.',
     },
     {
-      imageUrl: 'https://placehold.co/400x600/f8f8f8/333?text=B.zero1',
+      imageUrl: 'https://res.cloudinary.com/dnypox2mp/image/upload/v1753614524/stsexgpnwtcy8djqxd9e.png',
       title: 'B.zero1',
       description: 'The icon that rewrites the codes of design with an audacious spirit and creative experimentation.',
     },
     {
-      imageUrl: 'https://placehold.co/400x600/f8f8f8/333?text=Divas%27+Dream',
+      imageUrl: 'https://res.cloudinary.com/dnypox2mp/image/upload/v1753612214/pe2ikeiag7lwwxfsx9rl.png',
       title: "Divas' Dream",
       description: 'A celebration of timeless elegance and joyful femininity captured by an iconic, universal motif.',
     },
     {
-      imageUrl: 'https://placehold.co/400x600/f8f8f8/333?text=Bvlgari+Tubogas',
+      imageUrl: 'https://res.cloudinary.com/dnypox2mp/image/upload/v1752690093/imndibz3qgvc9eweht4g.png',
       title: 'Bvlgari Tubogas',
       description: 'Its sinuous twists of gold and versatile design make it an icon of eclectic innovation.',
     },
     {
-      imageUrl: 'https://placehold.co/400x600/f8f8f8/333?text=Octo',
+      imageUrl: 'https://himtajjewelry.com/tm10.webp',
       title: 'Octo',
       description: 'Defined by its iconic octagonal case, it blends a resolutely Italian style and mechanical mastery.',
     },
