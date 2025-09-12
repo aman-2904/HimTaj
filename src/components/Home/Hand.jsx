@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 // --- DraggableLine Component ---
@@ -10,7 +10,7 @@ const DraggableLine = ({ initialLeft, constraintsRef }) => {
       dragConstraints={constraintsRef}
       dragElastic={0}
       dragMomentum={false}
-      className="absolute top-0 h-full w-[1px] bg-gray-300 cursor-ew-resize"
+      className="absolute top-0 h-full w-[1px] bg-yellow-400 cursor-ew-resize opacity-30"
       style={{ left: initialLeft }}
       whileDrag={{ scaleY: 1.05, opacity: 0.8 }}
     >
@@ -20,16 +20,36 @@ const DraggableLine = ({ initialLeft, constraintsRef }) => {
 };
 
 // --- Main Hero Component ---
-const Hand = () => {
+const Hand = ({ setIsWhite }) => {
   const constraintsRef = useRef(null);
+  const handRef = useRef(null); // Ref to track Hand component's position
 
-  // scroll-based animation
+  // Scroll-based animation
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [200, -800]); // adjust values as needed
+  const y = useTransform(scrollYProgress, [0, 1], [200, -800]);
+
+  // Track scroll position to toggle navbar color
+  useEffect(() => {
+    const handleScroll = () => {
+      if (handRef.current) {
+        const handRect = handRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const handTop = handRect.top;
+
+        if (handTop <= windowHeight * 3) {
+          setIsWhite(true);
+        } else {
+          setIsWhite(false);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [setIsWhite]);
 
   return (
     <>
-      {/* Inject Google Font properly */}
       <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap"
         rel="stylesheet"
@@ -41,7 +61,7 @@ const Hand = () => {
       `}</style>
 
       <div
-        ref={constraintsRef}
+        ref={handRef}
         className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-tr from-rose-300 via-amber-50 to-orange-300 overflow-hidden font-sans text-center text-[#bca896] p-4"
       >
         {/* Draggable Lines */}
@@ -50,36 +70,39 @@ const Hand = () => {
         <DraggableLine initialLeft="75%" constraintsRef={constraintsRef} />
 
         {/* Text Content */}
-        <div className="z-10 relative">
+        <div className=" relative">
+          <div className=" z-10 ">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="font-playfair text-8xl mt-40 md:text-9xl lg:text-[12rem] tracking-wider leading-none"
+            className="font-playfair text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] mt-20 md:mt-40 tracking-wider leading-none"
           >
             collections
           </motion.h1>
-
-          
-        </div>
-        <motion.p
+          </div>
+         
+      <div className="relative z-30 mt-50">
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="max-w-md mx-auto  text-sm md:text-base mt-50"
+            className="max-w-sm sm:max-w-md mx-auto text-2xl sm:text-sm md:text-xl mt-6 md:mt-12 relative z-20"
           >
-            Inspired by our multi-ethnic life, we create fine jewelry to share
-            our wonderful tales...
+            Inspired by our multi-ethnic life, we create fine jewelry to share our
+            wonderful tales...
           </motion.p>
+          </div>
+          
+        </div>
 
         {/* Bottom Center Image */}
         <motion.img
-          src="Hand.png" // replace with your image
+          src="Hand.png"
           alt="Scroll Effect"
           style={{ y }}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[100px] md:w-[150px] object-contain z-50"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[130px] sm:w-[150px] md:w-[180px] object-contain z-20"
         />
-        
       </div>
     </>
   );

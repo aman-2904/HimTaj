@@ -15,15 +15,15 @@ const Newsletter = () => {
     <section
       className="relative flex items-center justify-center py-20 px-4 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1756908604030-04861dc79820?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", // <-- put image in /public folder
+        backgroundImage: "url(NewsL.png)", // <-- put image in /public folder
       }}
     >
       {/* Overlay for better readability */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 " />
 
       <div className="relative text-center w-full max-w-2xl text-white">
         {/* Main Heading */}
-        <h2 className="text-4xl md:text-5xl mb-8">
+        <h2 className="text-4xl md:text-5xl mb-8 text-black">
           Get the Best Blog Stories into Your Inbox!
         </h2>
 
@@ -58,10 +58,10 @@ const Newsletter = () => {
           />
           <label
             htmlFor="privacyPolicy"
-            className="ml-2 text-sm text-gray-200"
+            className="ml-2 text-sm text-black"
           >
             I agree to the{" "}
-            <a href="#" className="underline hover:text-white">
+            <a href="#" className="underline text-black">
               Privacy Policy.
             </a>
           </label>

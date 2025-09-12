@@ -52,7 +52,7 @@ export default function App() {
   ];
 
   return (
-    <div className="relative bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div className="relative bg-[#f7f4f2] min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl sm:text-4xl text-black font-light tracking-[0.2em] text-center uppercase mb-10">
           Discover The Icons

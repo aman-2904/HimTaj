@@ -14,7 +14,7 @@ const services = [
 ];
 
 const Services = () => (
-  <section className="bg-[#F5ECE9] py-20 px-4 sm:px-6 lg:px-8 relative ">
+  <section className="bg-white py-20 px-4 sm:px-6 lg:px-8 relative ">
     <div className="max-w-7xl mx-auto">
       <h2 className="text-center text-3xl tracking-widest text-[#3A3A3A] mb-12">
         LUMILUX AT YOUR SERVICE

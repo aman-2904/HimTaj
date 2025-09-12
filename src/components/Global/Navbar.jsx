@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -9,28 +8,29 @@ import {
   HiOutlineHeart,
   HiOutlineUser,
 } from "react-icons/hi";
-import Login from "../../app/login/page"; // import your Login component
+import Login from "../../app/login/page";
 
 export default function Navbar({
   isHovered,
   setIsHovered,
   isDrawerOpen,
   setIsDrawerOpen,
+  isWhite,
+  setIsWhite,
 }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [isLoginOpen, setIsLoginOpen] = useState(false); // NEW state for login drawer
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
-  const isHeaderActive = isHovered || isDrawerOpen || isSearchOpen || isLoginOpen;
+  const isHeaderActive = isHovered || isDrawerOpen || isSearchOpen || isLoginOpen || isWhite;
   const iconColor = isHeaderActive ? "black" : "white";
 
   return (
     <>
-      {/* --- NAVBAR HEADER --- */}
       <header
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className={`fixed top-0 left-0 w-full p-6 md:px-10 z-30 transition-colors duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 w-full p-6 md:px-10 z-50 transition-colors duration-300 ease-in-out ${
           isHeaderActive
             ? "bg-white text-black border-b border-gray-200"
             : "bg-transparent text-black"
@@ -65,13 +65,12 @@ export default function Navbar({
             <img
               src="/nav_logo.png"
               alt="Brand Logo"
-              style={{ width: "250px", height: "60px" }}
+              className="h-14 md:h-14 object-contain"
             />
           </div>
 
           {/* Right Section - Icons */}
           <div className="flex-1 flex justify-end items-center gap-6">
-            {/* --- Search --- */}
             <div className="flex items-center relative">
               <button
                 onClick={() => setIsSearchOpen((prev) => !prev)}
@@ -81,7 +80,6 @@ export default function Navbar({
               >
                 <HiOutlineSearch className="h-6 w-6" />
               </button>
-
               <AnimatePresence>
                 {isSearchOpen && (
                   <motion.input
@@ -99,8 +97,6 @@ export default function Navbar({
                 )}
               </AnimatePresence>
             </div>
-
-            {/* --- Wishlist --- */}
             <button
               onClick={() => alert("Wishlist Clicked")}
               style={{ color: iconColor }}
@@ -108,8 +104,6 @@ export default function Navbar({
             >
               <HiOutlineHeart className="h-6 w-6" />
             </button>
-
-            {/* --- User (Open Login Drawer) --- */}
             <button
               onClick={() => setIsLoginOpen(true)}
               style={{ color: iconColor }}
@@ -121,20 +115,16 @@ export default function Navbar({
         </div>
       </header>
 
-      {/* --- LOGIN DRAWER --- */}
       <AnimatePresence>
         {isLoginOpen && (
           <>
-            {/* Background Overlay */}
             <motion.div
               className="fixed inset-0 bg-black/40 z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setIsLoginOpen(false)} // close on click outside
+              onClick={() => setIsLoginOpen(false)}
             />
-
-            {/* Sliding Drawer */}
             <motion.div
               className="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-lg z-50 overflow-y-auto"
               initial={{ x: "100%" }}
@@ -142,15 +132,12 @@ export default function Navbar({
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-              {/* Close Button */}
               <button
                 className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
                 onClick={() => setIsLoginOpen(false)}
               >
                 <HiOutlineX className="h-6 w-6" />
               </button>
-
-              {/* Login Component */}
               <Login />
             </motion.div>
           </>

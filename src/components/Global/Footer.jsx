@@ -1,106 +1,101 @@
-// components/Footer.jsx
 "use client";
+import React, { useState, useEffect } from 'react';
+import { FaInstagram, FaFacebookF, FaEtsy } from "react-icons/fa";
 
-import React from 'react';
-import { 
-  FaMapMarkerAlt, 
-  FaPhoneAlt, 
-  FaEnvelope, 
-  FaFacebookF, 
-  FaTwitter, 
-  FaInstagram, 
-  FaPinterestP 
-} from 'react-icons/fa';
-import { BsChatDotsFill, BsArrowRight } from 'react-icons/bs';
+export default function Footer() {
+  const [scrollOffset, setScrollOffset] = useState(0);
 
-const Footer = () => {
-  const socialLinks = [
-    { icon: <FaFacebookF />, href: '#' },
-    { icon: <FaTwitter />, href: '#' },
-    { icon: <FaInstagram />, href: '#' },
-    { icon: <FaPinterestP />, href: '#' },
-  ];
+  useEffect(() => {
+    const onScroll = () => {
+      // Calculate scroll percentage relative to the document height
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const percentage = (scrollY / docHeight) * 100;
+      setScrollOffset(percentage * 2); // Adjust multiplier for more/less movement
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <>
-      <footer className=" relative bottom-0 left-0 bg-[#212121] text-gray-400 pt-16 pb-12 px-4 sm:px-6 lg:px-8 z-70">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-[#F8F5F2] text-gray-700 font-sans relative overflow-hidden py-20 z-70">
+      {/* Background Scrolling Text */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none">
+        <h2 
+          className="text-6xl md:text-9xl font-serif text-gray-300/50 whitespace-nowrap transition-transform duration-200 ease-out"
+          style={{ transform: `translateX(${scrollOffset}px)` }}
+        >
+          Anything less is
+        </h2>
+        <h2 
+          className="text-6xl md:text-9xl font-serif text-gray-300/50 whitespace-nowrap transition-transform duration-200 ease-out mt-4 ml-28"
+          style={{ transform: `translateX(-${scrollOffset}px)` }}
+        >
+          Simply unacceptable
+        </h2>
+      </div>
 
-            {/* Column 1: Store Information */}
-            <div className="mb-8 md:mb-0">
-              <h3 className="text-white text-sm font-semibold tracking-wider uppercase mb-6">Store Information</h3>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <FaMapMarkerAlt className="text-white mt-1 mr-3 flex-shrink-0" />
-                  <span>60, 29th Street, San Francisco, CA 94110, United States</span>
-                </li>
-                <li className="flex items-center">
-                  <FaPhoneAlt className="text-white mr-3" />
-                  <span>(+00) 123-456-789</span>
-                </li>
-                <li className="flex items-center">
-                  <FaEnvelope className="text-white mr-3" />
-                  <span>demo@example.com</span>
-                </li>
-              </ul>
-              <div className="flex space-x-3 mt-6">
-                {socialLinks.map((link, index) => (
-                  <a key={index} href={link.href} className="w-8 h-8 border border-gray-600 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors">
-                    {link.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
+      {/* Main Content */}
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Logo Image */}
+        <div className="text-center mb-16">
+          <img 
+            src="nav_logo.png" 
+            alt="HIMTAJ Logo" 
+            className="mx-auto w-70 h-20" 
+          />
+        </div>
 
-            {/* Column 2: Information */}
-            <div className="mb-8 md:mb-0">
-              <h3 className="text-white text-sm font-semibold tracking-wider uppercase mb-6">Information</h3>
-              <ul className="space-y-3">
-                <li><a href="#" className="hover:text-white transition-colors">Privacy policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Refund policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Shipping & Return</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Term & conditions</a></li>
-              </ul>
-            </div>
-
-            {/* Column 3: Quick Links */}
-            <div className="mb-8 md:mb-0">
-              <h3 className="text-white text-sm font-semibold tracking-wider uppercase mb-6">Quick Links</h3>
-              <ul className="space-y-3">
-                <li><a href="#" className="hover:text-white transition-colors">My account</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Shopping Cart</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Wishlist</a></li>
-                
-              </ul>
-            </div>
-
-            {/* Column 4: Let's Get in Touch */}
-            <div>
-              <h3 className="text-white text-sm font-semibold tracking-wider uppercase mb-6">Let's Get in Touch</h3>
-              <p className="mb-4">Subscribe to our latest newsletter to get news about special discounts.</p>
-              <form action="#">
-                <div className="relative">
-                  <input
-                    type="email"
-                    placeholder="Enter your email address..."
-                    className="w-full bg-white text-black placeholder-gray-500 px-4 py-2.5 pr-12 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                  <button type="submit" className="absolute inset-y-0 right-0 px-4 flex items-center text-gray-600 hover:text-black">
-                    <BsArrowRight />
-                  </button>
-                </div>
-              </form>
-            </div>
-
+        {/* Links Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-center mb-16">
+          <div>
+            <h3 className="font-semibold tracking-widest text-lg mb-4">ABOUT</h3>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#" className="hover:text-gray-900 transition-colors">our story</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">journal</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">our materials</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">contact us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold tracking-widest text-lg mb-4">STORE</h3>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#" className="hover:text-gray-900 transition-colors">collections</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">gift cards</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">customer reviews</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">retail store</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">etsy shop</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold tracking-widest text-lg mb-4">CARE</h3>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#" className="hover:text-gray-900 transition-colors">delivery</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">return & cancellations</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">faq</a></li>
+            </ul>
           </div>
         </div>
-      </footer>
-      
-      
-    </>
+
+        {/* Social Icons */}
+        <div className="flex justify-center items-center space-x-6 mb-16">
+          <a href="#" aria-label="Instagram">
+            <FaInstagram className="h-6 w-6 text-gray-700 hover:text-gray-900 transition-colors mt-20" />
+          </a>
+          <a href="#" aria-label="Facebook">
+            <FaFacebookF className="h-6 w-6 text-gray-700 hover:text-gray-900 transition-colors mt-20" />
+          </a>
+          <a href="#" aria-label="Etsy">
+            <FaEtsy className="h-6 w-6 text-gray-700 hover:text-gray-900 transition-colors mt-20" />
+          </a>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="text-center text-xs text-gray-500">
+          <p>Designed and developed in India by <span><a href='https://rbshstudio.com/'>RBSH Studio</a></span></p>
+        </div>
+      </div>
+    </footer>
   );
-};
-
-export default Footer;
-
+}

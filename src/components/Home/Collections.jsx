@@ -1,55 +1,54 @@
 "use client";
-
-import React, { useState } from 'react';
-import { FiArrowRight, FiStar } from 'react-icons/fi';
-
+import React, { useState, useRef } from "react";
+import { FiArrowRight, FiStar } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 // --- DATA ---
 const allProducts = [
   {
     id: 1,
-    name: 'Modern Study Table',
-    category: 'Earrings',
+    name: "Modern Study Table",
+    category: "Earrings",
     rating: 4.8,
     image:
-      'https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80',
-    badge: 'New',
+      "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80",
+    badge: "New",
   },
   {
     id: 2,
-    name: 'Aesthetic Bed Side Table',
-    category: 'Earrings',
+    name: "Aesthetic Bed Side Table",
+    category: "Earrings",
     rating: 4.7,
     image:
-      'https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80',
-    badge: 'Sale',
+      "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80",
+    badge: "Sale",
   },
   {
     id: 3,
-    name: 'Nature Loft Sofa',
-    category: 'Earrings',
+    name: "Nature Loft Sofa",
+    category: "Earrings",
     rating: 4.9,
     image:
-      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    badge: 'Hot',
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    badge: "Hot",
   },
   {
     id: 4,
-    name: 'Velvet Green Armchair',
-    category: 'Earrings',
+    name: "Velvet Green Armchair",
+    category: "Earrings",
     rating: 4.8,
     image:
-      'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
-    badge: 'New',
+      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+    badge: "New",
   },
   {
     id: 5,
-    name: 'Classic Wooden Chair',
-    category: 'Necklaces',
+    name: "Classic Wooden Chair",
+    category: "Necklaces",
     rating: 4.8,
     image:
-      'https://images.unsplash.com/photo-1506439773649-6e0b8cfc22a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
-    badge: 'Sold Out',
+      "https://images.unsplash.com/photo-1506439773649-6e0b8cfc22a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+    badge: "Sold Out",
   },
   {
     id: 6,
@@ -258,34 +257,58 @@ const allProducts = [
       'https://images.unsplash.com/photo-1540574163024-58eab325209f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     badge: 'Best Seller',
   },
-  // ...rest of your product list unchanged
+  // ... rest of your product list unchanged
 ];
 
 // List of categories for the filter tabs
 const categories = [
-  'Earrings',
-  'Necklaces',
-  'Studs',
-  'Bracelets',
-  'Anklets',
-  'Idols and Coins',
-  'Mens Jewellry',
-  'Bridal Jewellry',
-  'Gold Jewellry',
+  "Earrings",
+  "Necklaces",
+  "Studs",
+  "Bracelets",
+  "Anklets",
+  "Idols and Coins",
+  "Mens Jewellry",
+  "Bridal Jewellry",
+  "Gold Jewellry",
 ];
 
-const Collections = () => {
-  const [activeCategory, setActiveCategory] = useState('Earrings');
+// --- DraggableLine Component ---
+const DraggableLine = ({ initialLeft, constraintsRef }) => {
+  return (
+    <motion.div
+      drag="x"
+      dragConstraints={constraintsRef}
+      dragElastic={0}
+      dragMomentum={false}
+      className="absolute top-0 h-full w-[1px] bg-yellow-400 cursor-ew-resize opacity-30"
+      style={{ left: initialLeft }}
+      whileDrag={{ scaleY: 1.05, opacity: 0.8 }}
+    >
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-4" />
+    </motion.div>
+  );
+};
 
+const Collections = () => {
+  const [activeCategory, setActiveCategory] = useState("Earrings");
   const filteredProducts = allProducts.filter(
     (product) => product.category === activeCategory
   );
 
+  const constraintsRef = useRef(null);
+
   return (
-    <div className="relative bg-gradient-to-br from-rose-300 via-amber-50 to-orange-300 font-sans text-gray-800">
-      
-      
-      <div className="px-4 sm:px-6 lg:px-24 py-20">
+    <div
+      ref={constraintsRef}
+      className="relative bg-gradient-to-br from-rose-300 via-amber-50 to-orange-300 font-sans text-gray-800 min-h-screen overflow-hidden"
+    >
+      {/* Draggable Lines */}
+      <DraggableLine initialLeft="25%" constraintsRef={constraintsRef} />
+      <DraggableLine initialLeft="50%" constraintsRef={constraintsRef} />
+      <DraggableLine initialLeft="75%" constraintsRef={constraintsRef} />
+
+      <div className="px-4 sm:px-6 lg:px-24 py-20 relative z-10">
         {/* Filter Tabs */}
         <div className="flex items-center space-x-2 overflow-x-auto pb-4 mb-12">
           {categories.map((category) => (
@@ -294,8 +317,8 @@ const Collections = () => {
               onClick={() => setActiveCategory(category)}
               className={`px-6 py-3 rounded-full font-medium text-sm transition-colors duration-300 whitespace-nowrap ${
                 activeCategory === category
-                  ? 'bg-gray-900 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-200 border border-gray-200'
+                  ? "bg-gray-900 text-white"
+                  : "bg-transparent text-black hover:bg-gray-200 border border-gray-900"
               }`}
             >
               {category}
@@ -322,7 +345,6 @@ const Collections = () => {
                 <span className="absolute top-4 right-4 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
                   {product.badge}
                 </span>
-
                 {/* Card Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/60 to-transparent">
                   <div className="flex justify-between items-end">
@@ -359,3 +381,4 @@ const Collections = () => {
 };
 
 export default Collections;
+

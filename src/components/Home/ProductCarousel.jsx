@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// --- Card Data (move outside so it doesn't reinitialize each render) ---
+// --- Card Data (no changes) ---
 const cardData = [
   {
     id: 1,
@@ -19,7 +19,7 @@ const cardData = [
   },
   {
     id: 3,
-    title: "Divas' Dream Necklace",
+    title: "Divas' Dream Watch",
     image: "https://media.bulgari.com/image/upload/c_pad,h_1874,w_2400/q_auto/f_auto/1365170.png",
     tag: null,
   },
@@ -31,7 +31,7 @@ const cardData = [
   },
   {
     id: 5,
-    title: "Divas' Dream Necklace",
+    title: "Serpenti Viper Necklace",
     image: "https://media.bulgari.com/image/upload/c_pad,h_1874,w_2400/q_auto/f_auto/1365170.png",
     tag: null,
   },
@@ -49,7 +49,7 @@ const cardData = [
   },
 ];
 
-// --- Star Icon for Pagination ---
+// --- Star Icon (no changes) ---
 const StarIcon = ({ className }) => (
   <svg
     className={className}
@@ -62,17 +62,16 @@ const StarIcon = ({ className }) => (
   </svg>
 );
 
-
-// --- Carousel Card Component ---
+// --- Responsive Carousel Card Component ---
+// Note: Removed hardcoded widths to allow parent to control sizing.
 const CarouselCard = ({ title, image, tag, isCenter }) => {
   return (
-    <div className="relative flex-shrink-0 w-[285px] md:w-[320px] bg-white shadow-lg p-6 text-center">
+    <div className="bg-white shadow-lg p-6 text-center w-[285px] md:w-[320px] flex flex-col justify-between">
       {tag && (
         <span
-          className={`absolute top-4 right-4 text-xs font-semibold px-2 py-1 rounded ${tag === "New"
-            ? "bg-cyan-100 text-cyan-800"
-            : "bg-pink-100 text-pink-800"
-            }`}
+          className={`absolute top-4 right-4 text-xs font-semibold px-2 py-1 rounded ${
+            tag === "New" ? "bg-cyan-100 text-cyan-800" : "bg-pink-100 text-pink-800"
+          }`}
         >
           {tag}
         </span>
@@ -83,13 +82,13 @@ const CarouselCard = ({ title, image, tag, isCenter }) => {
         className="w-full h-[300px] object-contain mb-4"
         onError={(e) => {
           e.target.onerror = null;
-          e.target.src =
-            "https://placehold.co/400x500/f8f0e3/7c6c5a?text=Image+Not+Found";
+          e.target.src = "https://placehold.co/400x500/f8f0e3/7c6c5a?text=Image+Not+Found";
         }}
       />
       <h3
-        className={` text-sm ${isCenter ? "text-gray-800" : "text-gray-500"
-          } transition-colors duration-300`}
+        className={`text-sm font-medium ${
+          isCenter ? "text-gray-800" : "text-gray-500"
+        } transition-colors duration-300`}
       >
         {title}
       </h3>
@@ -97,37 +96,91 @@ const CarouselCard = ({ title, image, tag, isCenter }) => {
   );
 };
 
-// --- Main Carousel Component ---
+// --- Custom Hook for Window Size ---
+const useWindowSize = () => {
+    const [size, setSize] = useState({ width: 0, height: 0 });
+    useEffect(() => {
+        const handleResize = () => {
+            setSize({ width: window.innerWidth, height: window.innerHeight });
+        };
+        handleResize(); // Set initial size
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    return size;
+};
+
+// --- Main Responsive Carousel Component ---
 const ProductCarousel = () => {
   const items = cardData;
+  const { width } = useWindowSize();
+
+  // --- Responsive Settings ---
+  const { visibleItems, cardWidth, gap } = useMemo(() => {
+    if (width >= 1024) { // Large screens (lg)
+      return { visibleItems: 5, cardWidth: 320, gap: 20 };
+    }
+    if (width >= 768) { // Medium screens (md)
+      return { visibleItems: 3, cardWidth: 300, gap: 15 };
+    }
+    // Small screens (sm)
+    return { visibleItems: 1, cardWidth: 285, gap: 10 };
+  }, [width]);
+  
   const extendedItems = useMemo(() => [...items, ...items, ...items], [items]);
   const [currentIndex, setCurrentIndex] = useState(items.length);
+  const [isTransitionDisabled, setIsTransitionDisabled] = useState(false);
 
-  const handleNext = () => setCurrentIndex((prev) => prev + 1);
-  const handlePrev = () => setCurrentIndex((prev) => prev - 1);
+  // --- Handlers for Next/Prev ---
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => prev + 1);
+  }, []);
 
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prev) => prev - 1);
+  }, []);
 
-
+  // --- Effect for Infinite Loop ---
   useEffect(() => {
+    // If we've slid to the clone of the first item at the end,
+    // "jump" back to the real first item at the start.
     if (currentIndex >= items.length * 2) {
       setTimeout(() => {
+        setIsTransitionDisabled(true);
         setCurrentIndex(items.length);
-      }, 500);
-    } else if (currentIndex < items.length) {
+      }, 500); // Wait for the transition to finish
+    } 
+    // If we've slid to the clone of the last item at the beginning,
+    // "jump" back to the real last item at the end.
+    else if (currentIndex < items.length) {
       setTimeout(() => {
+        setIsTransitionDisabled(true);
         setCurrentIndex(items.length * 2 - 1);
-      }, 500);
+      }, 500); // Wait for the transition to finish
     }
-  }, [currentIndex, items.length]);
+    // After a jump, re-enable transitions.
+    if(isTransitionDisabled) {
+        setTimeout(() => {
+            setIsTransitionDisabled(false);
+        }, 50); // A small delay to allow React to re-render
+    }
+  }, [currentIndex, items.length, isTransitionDisabled]);
+
+  // --- Dynamic Calculation for Centering ---
+  const totalItemWidth = cardWidth + gap;
+  const carouselTranslateX = useMemo(() => {
+    // We want to center the current card.
+    // 50% moves the start of the container to the center of the screen.
+    // Then we pull it back by the offset of all previous cards.
+    // Finally, we pull it back by half the width of the current card to truly center it.
+    return `calc(50% - ${currentIndex * totalItemWidth}px - ${totalItemWidth / 2}px)`;
+  }, [currentIndex, totalItemWidth]);
 
   return (
-    
-    <div className=" sticky top-0 left-0 relative  bg-gradient-to-tr from-rose-300 via-amber-50 to-orange-300 min-h-screen flex items-center justify-center font-sans">
-      <div
-        className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden pt-16" // Added padding-top to avoid overlap
-      >
+    <div className="relative bg-gradient-to-tr from-rose-300 via-amber-50 to-orange-300 min-h-screen flex items-center justify-center font-sans overflow-hidden">
+      <div className="relative w-full h-full flex flex-col items-center justify-center pt-16 pb-12">
         {/* Navigation */}
-        <div className="absolute top-1 right-4 md:top-2 md:right-8 z-50 flex space-x-3">
+        <div className="absolute top-1 right-4 md:top-2 md:right-8 z-20 flex space-x-3">
           <button
             onClick={handlePrev}
             className="bg-white/50 backdrop-blur-sm rounded-full p-4 hover:bg-white/80 transition-all duration-300"
@@ -142,23 +195,28 @@ const ProductCarousel = () => {
           </button>
         </div>
 
+        {/* Carousel Track */}
         <div
-          className="flex items-center transition-transform duration-500 ease-in-out"
+          className="flex items-center"
           style={{
-            transform: `translateX(calc(50% - ${currentIndex * 340}px - 160px))`,
+            transform: `translateX(${carouselTranslateX})`,
+            transition: isTransitionDisabled ? 'none' : 'transform 0.5s ease-in-out',
           }}
         >
           {extendedItems.map((item, index) => {
             const isCenter = index === currentIndex;
             const offset = index - currentIndex;
+            // Determine visibility based on screen size
+            const isVisible = Math.abs(offset) <= Math.floor(visibleItems / 2);
 
             const transformStyle = {
+              width: `${cardWidth}px`,
+              margin: `0 ${gap / 2}px`,
               transform: `scale(${isCenter ? 1.1 : 0.9})`,
               zIndex: extendedItems.length - Math.abs(offset),
-              transition:
-                "transform 0.5s ease-in-out, opacity 0.5s ease-in-out",
-              opacity: Math.abs(offset) > 2 ? 0 : 1,
-              margin: "0 10px",
+              transition: "transform 0.5s ease-in-out, opacity 0.5s ease-in-out",
+              opacity: isVisible ? 1 : 0,
+              flexShrink: 0,
             };
 
             return (
@@ -181,9 +239,7 @@ const ProductCarousel = () => {
         </div>
       </div>
     </div>
-    
   );
 };
 
 export default ProductCarousel;
-

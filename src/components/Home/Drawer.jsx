@@ -7,12 +7,14 @@ import Image from "next/image";
 
 // --- Structured Dummy Data (Replace with your real data) ---
 const menuData = {
-  jewellery: {
+  forHim: {
     collections: [
-      { name: "Ring", href: "#", imgSrc: "/ring.png" },
-      { name: "Bracelet", href: "#", imgSrc: "/Bracelet.png" },
-      { name: "Ear Ring", href: "#", imgSrc: "/earRing.png" },
-      { name: "Necklace", href: "#", imgSrc: "/Necklace.png" },
+      { name: "Earrings", href: "#", imgSrc: "/ring.png" },
+      
+      { name: "Bracelets", href: "#", imgSrc: "/earRing.png" },
+      { name: "Rings", href: "#", imgSrc: "/Necklace.png" },
+      { name: "Others", href: "#", imgSrc: "/earRing.png" },
+      
     ],
     feature: {
       imgSrc: "/NeckPotrait.avif",
@@ -20,25 +22,43 @@ const menuData = {
       href: "#",
     },
   },
-  watches: {
+  forHer: {
     collections: [
-      { name: "Octo", href: "#", imgSrc: "/images/octo.jpg" },
-      { name: "Bvlgari Aluminium", href: "#", imgSrc: "/images/aluminium.jpg" },
-      { name: "Lvcea", href: "#", imgSrc: "/images/lvcea.jpg" },
-      { name: "Other collections", href: "#", imgSrc: "/images/other.jpg" },
+      { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
+      { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
+      { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
+      { name: "Rings", href: "#", imgSrc: "/ring.png" },
+      { name: "Anklets", href: "#", imgSrc: "/ring.png" },
+      { name: "Others", href: "#", imgSrc: "/ring.png" },
     ],
     feature: {
-      imgSrc: "/images/feature-octo.jpg",
+      imgSrc: "/NeckPotrait.avif",
       title: "Octo Watch Collection",
       href: "#",
     },
   },
+  unisex: {
+    collections: [
+      { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
+      { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
+      { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
+      { name: "Rings", href: "#", imgSrc: "/ring.png" },
+      { name: "Anklets", href: "#", imgSrc: "/ring.png" },
+      { name: "Others", href: "#", imgSrc: "/ring.png" },
+    ],
+    feature: {
+      imgSrc: "/NeckPotrait.avif",
+      title: "Octo Watch Collection",
+      href: "#",
+    },
+  },
+  
 };
 
 const mainCategories = [
-  { id: "jewellery", name: "Jewellery" },
-  { id: "watches", name: "Watches" },
-  { id: "gifts", name: "Gifts" },
+  { id: "forHim", name: "For Him" },
+  { id: "forHer", name: "For Her" },
+  { id: "unisex", name: "For Both (Unisex)" },
 ];
 
 // Animation Variants
@@ -129,7 +149,7 @@ export default function Drawer({ isOpen, onClose }) {
           >
             <div className="h-full flex">
               {/* LEFT SMALL DRAWER */}
-              <div className="w-1/4 border-r border-gray-200 p-6 overflow-y-auto text-black">
+              <div className="w-1/4 border-r border-gray-200 p-6 pl-18 overflow-y-auto text-black">
                 {/* Collections Accordion */}
                 <div className="mb-6">
                   <button
