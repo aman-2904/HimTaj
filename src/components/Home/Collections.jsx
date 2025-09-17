@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useRef } from "react";
 import { FiArrowRight, FiStar } from "react-icons/fi";
+import { FaRupeeSign  } from 'react-icons/fa';
+import { HiOutlineHeart } from "react-icons/hi";
 import { motion } from "framer-motion";
 
 // --- DATA ---
@@ -9,37 +11,41 @@ const allProducts = [
     id: 1,
     name: "Modern Study Table",
     category: "Earrings",
-    rating: 4.8,
+    price: 2000,
     image:
-      "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80",
+      "https://images.unsplash.com/photo-1714733831162-0a6e849141be?q=80&w=1070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     badge: "New",
+    hoverimg:"https://images.unsplash.com/photo-1615854430736-c9fae5a95083?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 2,
     name: "Aesthetic Bed Side Table",
     category: "Earrings",
-    rating: 4.7,
+    price: 1500,
     image:
-      "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80",
+      "https://images.unsplash.com/photo-1701777892740-88419a701472?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     badge: "Sale",
+    hoverimg:"https://images.unsplash.com/photo-1723986071829-42d53407ae38?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 3,
     name: "Nature Loft Sofa",
     category: "Earrings",
-    rating: 4.9,
+    price: 1300,
     image:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1716461534906-d31a17008801?q=80&w=1310&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     badge: "Hot",
+    hoverimg:"https://images.unsplash.com/photo-1656109801168-699967cf3ba9?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 4,
     name: "Velvet Green Armchair",
     category: "Earrings",
-    rating: 4.8,
+    price: 1500,
     image:
       "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
     badge: "New",
+    hoverimg:"https://images.unsplash.com/photo-1656109801168-699967cf3ba9?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 5,
@@ -49,6 +55,7 @@ const allProducts = [
     image:
       "https://images.unsplash.com/photo-1506439773649-6e0b8cfc22a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
     badge: "Sold Out",
+    hoverimg:"https://images.unsplash.com/photo-1656109801168-699967cf3ba9?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 6,
@@ -58,6 +65,7 @@ const allProducts = [
     image:
       'https://images.unsplash.com/photo-1540574163024-58eab325209f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     badge: 'Best Seller',
+    hoverimg:"https://images.unsplash.com/photo-1656109801168-699967cf3ba9?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 7,
@@ -166,6 +174,7 @@ const allProducts = [
     image:
       'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
     badge: 'New',
+    
   },
   {
     id: 19,
@@ -317,14 +326,14 @@ const Collections = () => {
               onClick={() => setActiveCategory(category)}
               className={`px-6 py-3 rounded-full font-medium text-sm transition-colors duration-300 whitespace-nowrap ${
                 activeCategory === category
-                  ? "bg-gray-900 text-white"
-                  : "bg-transparent text-black hover:bg-gray-200 border border-gray-900"
+                  ? "bg-[#582434] text-white"
+                  : "bg-[#582434] text-white  hover:text-gray-400 border border-gray-900"
               }`}
             >
               {category}
             </button>
           ))}
-          <button className="flex-shrink-0 flex items-center justify-center w-12 h-12 bg-gray-800 backdrop-blur-sm rounded-full text-white transform hover:scale-110 hover:bg-white/30 transition-all duration-300">
+          <button className="flex-shrink-0 flex items-center justify-center w-12 h-12 bg-[#582434] backdrop-blur-sm rounded-full text-white transform hover:scale-110  transition-all duration-300">
             <FiArrowRight className="w-5 h-5" />
           </button>
         </div>
@@ -340,10 +349,20 @@ const Collections = () => {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-cover transition-opacity duration-300 group-hover:opacity-0"
                 />
-                <span className="absolute top-4 right-4 bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                <img
+                src={product.hoverimg}
+                alt={product.name}
+                className="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+                <span className="absolute top-4 left-4 bg-white text-black text-xs font-semibold px-3 py-1 rounded-full">
                   {product.badge}
+                </span>
+                <span className="absolute top-2 right-4 text-white text-xs font-semibold rounded-full">
+                  <button className="p-2 text-red-500 hover:text-red-700">
+                    <HiOutlineHeart size={28} />
+                  </button>
                 </span>
                 {/* Card Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/60 to-transparent">
@@ -352,16 +371,14 @@ const Collections = () => {
                       <h3 className="text-xl font-bold text-white">
                         {product.name}
                       </h3>
-                      <div className="flex items-center mt-1 text-yellow-400">
-                        <FiStar className="w-4 h-4 fill-current" />
+                      <div className="flex items-center mt-1 text-white">
+                        <FaRupeeSign className="w-4 h-4 fill-current" />
                         <span className="text-white text-sm ml-1 font-medium">
-                          {product.rating}
+                          {product.price}
                         </span>
                       </div>
                     </div>
-                    <button className="flex-shrink-0 flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full text-white transform hover:scale-110 hover:bg-white/30 transition-all duration-300">
-                      <FiArrowRight className="w-5 h-5" />
-                    </button>
+                    
                   </div>
                 </div>
               </div>
@@ -371,7 +388,7 @@ const Collections = () => {
 
         {/* Explore Button */}
         <div className="text-center mt-16">
-          <button className="bg-gray-900 text-white font-semibold px-8 py-4 rounded-full hover:bg-gray-700 transition-colors duration-300">
+          <button className="bg-[#582434] text-white font-semibold px-8 py-4 rounded-full hover:bg-gray-700 transition-colors duration-300">
             Explore Collection
           </button>
         </div>

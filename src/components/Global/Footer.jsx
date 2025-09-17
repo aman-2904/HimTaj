@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { FaInstagram, FaFacebookF, FaEtsy } from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   const [scrollOffset, setScrollOffset] = useState(0);
@@ -23,16 +23,16 @@ export default function Footer() {
       {/* Background Scrolling Text */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none">
         <h2 
-          className="text-6xl md:text-9xl font-serif text-gray-300/50 whitespace-nowrap transition-transform duration-200 ease-out"
+          className="text-5xl md:text-9xl font-serif text-gray-300/50 whitespace-nowrap transition-transform duration-200 ease-out"
           style={{ transform: `translateX(${scrollOffset}px)` }}
         >
-          Anything less is
+          Your Story,
         </h2>
         <h2 
-          className="text-6xl md:text-9xl font-serif text-gray-300/50 whitespace-nowrap transition-transform duration-200 ease-out mt-4 ml-28"
+          className="text-5xl md:text-9xl font-serif text-gray-300/50 whitespace-nowrap transition-transform duration-200 ease-out mt-4 ml-28"
           style={{ transform: `translateX(-${scrollOffset}px)` }}
         >
-          Simply unacceptable
+          Our Jewellery
         </h2>
       </div>
 
@@ -50,30 +50,30 @@ export default function Footer() {
         {/* Links Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-center mb-16">
           <div>
-            <h3 className="font-semibold tracking-widest text-lg mb-4">ABOUT</h3>
+            <h3 className="font-semibold tracking-widest text-lg mb-4">USEFUL LINKS</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-gray-900 transition-colors">our story</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">journal</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">our materials</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">contact us</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">Delivery Information</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">Journal</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">Shipping</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">Terms & Conditions</a></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold tracking-widest text-lg mb-4">STORE</h3>
+            <h3 className="font-semibold tracking-widest text-lg mb-4">INFORMATION</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-gray-900 transition-colors">collections</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">gift cards</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">customer reviews</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">retail store</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">etsy shop</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">About Us</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">Blog</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">Cancellation Policy</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">Help & FAQ</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold tracking-widest text-lg mb-4">CARE</h3>
+            <h3 className="font-semibold tracking-widest text-lg mb-4">CONTACT US</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-gray-900 transition-colors">delivery</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">return & cancellations</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">faq</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">+91 9773690444</a></li>
+              <li><a href="#" className="hover:text-gray-900 transition-colors">Chat With Us</a></li>
+              
             </ul>
           </div>
         </div>
@@ -86,9 +86,11 @@ export default function Footer() {
           <a href="#" aria-label="Facebook">
             <FaFacebookF className="h-6 w-6 text-gray-700 hover:text-gray-900 transition-colors mt-20" />
           </a>
-          <a href="#" aria-label="Etsy">
-            <FaEtsy className="h-6 w-6 text-gray-700 hover:text-gray-900 transition-colors mt-20" />
+          <a href="#" aria-label="Facebook">
+            <FaWhatsapp className="h-6 w-6 text-gray-700 hover:text-gray-900 transition-colors mt-20" />
           </a>
+          
+          
         </div>
 
         {/* Footer Bottom */}

@@ -44,7 +44,10 @@ const Input = ({
 const Login = () => {
   const [view, setView] = useState("main"); // 'main' or 'signup'
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  // --- Selection states ---
+  const [loginMethod, setLoginMethod] = useState("email"); // 'email' or 'phone'
+  const [signupMethod, setSignupMethod] = useState("email"); // 'email' or 'phone'
 
   const formVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -74,13 +77,39 @@ const Login = () => {
               className="flex flex-col"
             >
               {/* --- Login Section --- */}
-              <h2 className="text-2xl mb-2">I have an account</h2>
-              <p className="text-gray-600 mb-8">
-                Sign in to be part of the Bvlgari world, discover our new
-                collections and receive news from the Maison.
-              </p>
+              <h2 className="text-2xl mb-6">I have an account</h2>
+
+              {/* Choose Login Method */}
+              <div className="flex space-x-6 mb-6 text-sm">
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    value="email"
+                    checked={loginMethod === "email"}
+                    onChange={() => setLoginMethod("email")}
+                    className="mr-2"
+                  />
+                  Email
+                </label>
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    value="phone"
+                    checked={loginMethod === "phone"}
+                    onChange={() => setLoginMethod("phone")}
+                    className="mr-2"
+                  />
+                  Phone Number
+                </label>
+              </div>
+
               <form className="space-y-10">
-                <Input id="login-email" label="Email" type="email" />
+                {loginMethod === "email" ? (
+                  <Input id="login-email" label="Email" type="email" />
+                ) : (
+                  <Input id="login-phone" label="Phone Number" type="tel" />
+                )}
+
                 <Input
                   id="login-password"
                   label="Password"
@@ -99,7 +128,7 @@ const Login = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3 bg-black text-white font-bold tracking-widest"
+                  className="w-full py-3 bg-gradient-to-br from-rose-300 via-amber-50 to-orange-300 text-black font-bold tracking-widest "
                 >
                   LOG IN
                 </button>
@@ -112,7 +141,7 @@ const Login = () => {
                 </p>
                 <button
                   onClick={() => setView("signup")}
-                  className="w-full py-3 bg-gray-800 text-white font-bold tracking-widest"
+                  className="w-full py-3 bg-gradient-to-br from-rose-300 via-amber-50 to-orange-300 text-black font-bold tracking-widest"
                 >
                   CREATE YOUR ACCOUNT
                 </button>
@@ -134,17 +163,43 @@ const Login = () => {
                 className="absolute top-0 right-0 cursor-pointer text-gray-600 hover:text-black"
                 size={24}
               />
-              <h2 className="text-3xl mb-2">Create new account</h2>
-              <p className="text-gray-600 mb-12">
-                Create your account to be part of the Bvlgari world, discover
-                our new collections and receive news from the Maison.
-              </p>
+              <h2 className="text-3xl mb-10">Create new account</h2>
+
+              {/* Choose Signup Method */}
+              <div className="flex space-x-6 mb-6 text-sm">
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    value="email"
+                    checked={signupMethod === "email"}
+                    onChange={() => setSignupMethod("email")}
+                    className="mr-2"
+                  />
+                  Email
+                </label>
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    value="phone"
+                    checked={signupMethod === "phone"}
+                    onChange={() => setSignupMethod("phone")}
+                    className="mr-2"
+                  />
+                  Phone Number
+                </label>
+              </div>
+
               <form className="space-y-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <Input id="first-name" label="First Name" type="text" />
                   <Input id="last-name" label="Last Name" type="text" />
-                  <Input id="signup-email" label="Email" type="email" />
-                  <Input id="confirm-email" label="Confirm Email" type="email" />
+
+                  {signupMethod === "email" ? (
+                    <Input id="signup-email" label="Email" type="email" />
+                  ) : (
+                    <Input id="signup-phone" label="Phone Number" type="tel" />
+                  )}
+
                   <Input
                     id="signup-password"
                     label="Password"
@@ -152,16 +207,8 @@ const Login = () => {
                     showPassword={showPassword}
                     onToggleVisibility={() => setShowPassword(!showPassword)}
                   />
-                  <Input
-                    id="confirm-password"
-                    label="Confirm Password"
-                    type={showConfirmPassword ? "text" : "password"}
-                    showPassword={showConfirmPassword}
-                    onToggleVisibility={() =>
-                      setShowConfirmPassword(!showConfirmPassword)
-                    }
-                  />
                 </div>
+
                 <div className="space-y-4 text-sm text-gray-700">
                   <p>
                     Having read and understood the Privacy Information Notice, I
@@ -184,13 +231,16 @@ const Login = () => {
                     </label>
                   </div>
                 </div>
+
                 <p className="text-xs text-gray-500">*Required fields</p>
+
                 <button
                   type="submit"
-                  className="w-full py-3 bg-black text-white font-bold tracking-widest"
+                  className="w-full py-3 bg-gradient-to-br from-rose-300 via-amber-50 to-orange-300 text-black font-bold tracking-widest "
                 >
                   SUBMIT
                 </button>
+
                 <p className="text-center mt-4">
                   Already have an account?{" "}
                   <button
@@ -211,3 +261,4 @@ const Login = () => {
 };
 
 export default Login;
+ 

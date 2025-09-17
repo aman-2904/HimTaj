@@ -5,60 +5,255 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HiPlus, HiMinus, HiChevronRight } from "react-icons/hi";
 import Image from "next/image";
 
-// --- Structured Dummy Data (Replace with your real data) ---
+// --- Structured Dummy Data (Updated for multi-level dropdown) ---
 const menuData = {
-  forHim: {
-    collections: [
-      { name: "Earrings", href: "#", imgSrc: "/ring.png" },
-      
-      { name: "Bracelets", href: "#", imgSrc: "/earRing.png" },
-      { name: "Rings", href: "#", imgSrc: "/Necklace.png" },
-      { name: "Others", href: "#", imgSrc: "/earRing.png" },
-      
-    ],
-    feature: {
-      imgSrc: "/NeckPotrait.avif",
-      title: "Iconic Jewellery",
-      href: "#",
+  women: {
+    subCategories: {
+      "Necklace": {
+        collections: [
+          { name: "All Necklaces", href: "#", imgSrc: "/earRing.png" },
+          { name: "Chain", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Pendant", href: "#", imgSrc: "/ring.png" },
+          { name: "Tennis Necklace", href: "#", imgSrc: "/ring.png" },
+          { name: "Charms + Pendants", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Octo Watch Collection",
+          href: "#",
+        },
+      },
+      "Bracelet": {
+        collections: [
+          { name: "All Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Chain Bracelets", href: "#", imgSrc: "/earRing.png" },
+          { name: "Cuffs + Bangle Bracelets", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Tennis Bracelets", href: "#", imgSrc: "/earRing.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Iconic Jewellery",
+          href: "#",
+        },
+      },
+      "Ring": {
+        collections: [
+          { name: "All Rings", href: "#", imgSrc: "/ring.png" },
+          { name: "Stackable Rings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Statement Rings", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Wedding Bands", href: "#", imgSrc: "/earRing.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Iconic Jewellery",
+          href: "#",
+        },
+      },
+      "Earring": {
+        collections: [
+          { name: "All Earrings", href: "#", imgSrc: "/ring.png" },
+          { name: "Studs", href: "#", imgSrc: "/earRing.png" },
+          { name: "Hoops", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Single Earrings", href: "#", imgSrc: "/earRing.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Iconic Jewellery",
+          href: "#",
+        },
+      },
     },
   },
-  forHer: {
-    collections: [
-      { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
-      { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
-      { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
-      { name: "Rings", href: "#", imgSrc: "/ring.png" },
-      { name: "Anklets", href: "#", imgSrc: "/ring.png" },
-      { name: "Others", href: "#", imgSrc: "/ring.png" },
-    ],
-    feature: {
-      imgSrc: "/NeckPotrait.avif",
-      title: "Octo Watch Collection",
-      href: "#",
+  men: {
+    subCategories: {
+      "Necklaces": {
+        collections: [
+          { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Unisex Collection",
+          href: "#",
+        },
+      },
+      "Bracelets": {
+        collections: [
+          { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Unisex Collection",
+          href: "#",
+        },
+      },
+      "Ring": {
+        collections: [
+          { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Unisex Collection",
+          href: "#",
+        },
+      },
+      "Studs": {
+        collections: [
+          { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Unisex Collection",
+          href: "#",
+        },
+      },
+      "All Jewellery": {
+        collections: [
+          { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Unisex Collection",
+          href: "#",
+        },
+      },
+
     },
   },
-  unisex: {
-    collections: [
-      { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
-      { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
-      { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
-      { name: "Rings", href: "#", imgSrc: "/ring.png" },
-      { name: "Anklets", href: "#", imgSrc: "/ring.png" },
-      { name: "Others", href: "#", imgSrc: "/ring.png" },
-    ],
-    feature: {
-      imgSrc: "/NeckPotrait.avif",
-      title: "Octo Watch Collection",
-      href: "#",
+  others: {
+    subCategories: {
+      "Idols & Coins": {
+        collections: [
+          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Premium Collection",
+          href: "#",
+        },
+      },
+      "Anklet": {
+        collections: [
+          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Premium Collection",
+          href: "#",
+        },
+      },
+      "Kid's Jewellery": {
+        collections: [
+          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Premium Collection",
+          href: "#",
+        },
+      },
+      "Gold Jewellery": {
+        collections: [
+          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Premium Collection",
+          href: "#",
+        },
+      },
     },
   },
-  
+  gift: {
+    subCategories: {
+      "Under 5k": {
+        collections: [
+          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Premium Collection",
+          href: "#",
+        },
+      },
+      "Between 5k-15k": {
+        collections: [
+          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Premium Collection",
+          href: "#",
+        },
+      },
+      "Between 15k-25k": {
+        collections: [
+          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Premium Collection",
+          href: "#",
+        },
+      },
+      "25k & Above": {
+        collections: [
+          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
+          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
+          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Premium Collection",
+          href: "#",
+        },
+      },
+    },
+  },
 };
 
-const mainCategories = [
-  { id: "forHim", name: "For Him" },
-  { id: "forHer", name: "For Her" },
-  { id: "unisex", name: "For Both (Unisex)" },
+const mainGroups = [
+  { id: "women", name: "Women" },
+  { id: "men", name: "Men" },
+  { id: "others", name: "Other Collection" },
+  { id: "gift", name: "Gifts" },
+
 ];
 
 // Animation Variants
@@ -84,7 +279,8 @@ const featureVariants = {
 };
 
 export default function Drawer({ isOpen, onClose }) {
-  const [expandedSection, setExpandedSection] = useState(null);
+  const [expandedSection, setExpandedSection] = useState("collections"); // Keep it open by default
+  const [activeGroup, setActiveGroup] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
 
   const toggleSection = (sectionName) => {
@@ -104,18 +300,27 @@ export default function Drawer({ isOpen, onClose }) {
   useEffect(() => {
     if (!isOpen) {
       setTimeout(() => {
-        setExpandedSection(null);
+        setExpandedSection("collections");
+        setActiveGroup(null);
         setActiveCategory(null);
       }, 350);
     }
   }, [isOpen]);
+
+  const handleGroupClick = (groupId) => {
+    setActiveGroup((prev) => (prev === groupId ? null : groupId));
+    setActiveCategory(null); // reset category when group changes
+  };
 
   const handleCategoryClick = (catId) => {
     setActiveCategory((prev) => (prev === catId ? null : catId));
   };
 
   const activeData =
-    (activeCategory && menuData[activeCategory]) || { collections: [], feature: {} };
+    (activeGroup &&
+      activeCategory &&
+      menuData[activeGroup]?.subCategories[activeCategory]) ||
+    { collections: [], feature: {} };
 
   return (
     <>
@@ -143,13 +348,13 @@ export default function Drawer({ isOpen, onClose }) {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "tween", duration: 0.35 }}
-            className="fixed left-0 top-[81px] h-[calc(100vh-81px)] w-full bg-white shadow-lg z-50 overflow-hidden"
+            className="fixed left-0 top-[81px] h-[calc(100vh-81px)] w-full shadow-lg z-50 overflow-hidden"
             role="dialog"
             aria-modal="true"
           >
             <div className="h-full flex">
               {/* LEFT SMALL DRAWER */}
-              <div className="w-1/4 border-r border-gray-200 p-6 pl-18 overflow-y-auto text-black">
+              <div className="w-1/4 border-r border-gray-200 p-6 pl-12 overflow-y-auto text-black bg-white">
                 {/* Collections Accordion */}
                 <div className="mb-6">
                   <button
@@ -159,80 +364,85 @@ export default function Drawer({ isOpen, onClose }) {
                     <span>Collections</span>
                     {expandedSection === "collections" ? <HiMinus /> : <HiPlus />}
                   </button>
-                  {expandedSection === "collections" && (
-                    <ul className="mt-2 pl-4 space-y-2 text-base">
-                      {mainCategories.map((cat) => (
-                        <li
-                          key={cat.id}
-                          onClick={() => handleCategoryClick(cat.id)}
-                          className={`flex items-center justify-between cursor-pointer ${
-                            activeCategory === cat.id
-                              ? "font-semibold"
-                              : "hover:text-gray-500"
-                          }`}
-                        >
-                          {cat.name}
-                          {activeCategory === cat.id && <HiChevronRight />}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
 
-                {/* About */}
-                <div className="mb-6">
-                  <button
-                    onClick={() => toggleSection("about")}
-                    className="flex justify-between items-center w-full text-lg"
-                  >
-                    <span>About</span>
-                    {expandedSection === "about" ? <HiMinus /> : <HiPlus />}
-                  </button>
-                  {expandedSection === "about" && (
-                    <ul className="mt-2 pl-4 space-y-2 text-base text-gray-600">
-                      <li>Our Story</li>
-                      <li>Mission</li>
-                      <li>Team</li>
-                    </ul>
-                  )}
-                </div>
+                  {/* ===== CHANGED SECTION START ===== */}
+                  <AnimatePresence>
+                    {expandedSection === "collections" && (
+                      <motion.ul
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="mt-2 pl-4 space-y-2 text-base overflow-hidden"
+                      >
+                        {mainGroups.map((group) => (
+                          <li key={group.id}>
+                            <div
+                              onClick={() => handleGroupClick(group.id)}
+                              className={`cursor-pointer py-1 ${
+                                activeGroup === group.id
+                                  ? "font-semibold"
+                                  : "hover:text-gray-500"
+                              }`}
+                            >
+                              {group.name}
+                            </div>
 
-                {/* Contact */}
-                <div>
-                  <button
-                    onClick={() => toggleSection("contact")}
-                    className="flex justify-between items-center w-full text-lg"
-                  >
-                    <span>Contact</span>
-                    {expandedSection === "contact" ? <HiMinus /> : <HiPlus />}
-                  </button>
-                  {expandedSection === "contact" && (
-                    <ul className="mt-2 pl-4 space-y-2 text-base text-gray-600">
-                      <li>Email</li>
-                      <li>Phone</li>
-                      <li>Location</li>
-                    </ul>
-                  )}
+                            {/* Conditionally render sub-menu right here */}
+                            <AnimatePresence>
+                              {activeGroup === group.id && (
+                                <motion.ul
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: "auto", opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  className="pl-4 space-y-2 text-sm overflow-hidden"
+                                >
+                                  {Object.keys(
+                                    menuData[group.id].subCategories
+                                  ).map((catId) => (
+                                    <li
+                                      key={catId}
+                                      onClick={() => handleCategoryClick(catId)}
+                                      className={`cursor-pointer flex justify-between items-center py-1 ${
+                                        activeCategory === catId
+                                          ? "font-semibold"
+                                          : "hover:text-gray-500"
+                                      }`}
+                                    >
+                                      <span>{catId}</span>
+                                      {activeCategory === catId && (
+                                        <HiChevronRight />
+                                      )}
+                                    </li>
+                                  ))}
+                                </motion.ul>
+                              )}
+                            </AnimatePresence>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                  {/* ===== CHANGED SECTION END ===== */}
                 </div>
               </div>
 
               {/* RIGHT BIG DRAWER */}
               <AnimatePresence>
-                {activeCategory && menuData[activeCategory] && (
+                {activeGroup && activeCategory && activeData && (
                   <motion.div
-                    key={activeCategory}
+                    key={`${activeGroup}-${activeCategory}`} // Use a unique key to force re-render on change
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
                     className="flex-1 flex overflow-hidden bg-white"
                   >
-                    {/* MIDDLE COLUMN with stagger */}
+                    {/* MIDDLE COLUMN */}
                     <motion.div
                       variants={containerVariants}
                       initial="hidden"
                       animate="visible"
-                      className="w-9/12 p-8 grid grid-cols-2 gap-x-6 gap-y-8 overflow-y-auto"
+                      className="w-1/2 p-8 grid grid-cols-2 gap-x-6 gap-y-8 overflow-y-auto"
                     >
                       {activeData.collections.map((item) => (
                         <motion.a
@@ -257,22 +467,26 @@ export default function Drawer({ isOpen, onClose }) {
                       ))}
                     </motion.div>
 
-                    {/* FEATURE IMAGE (appears after collection images) */}
-                    <motion.div
+                    {/* FEATURE IMAGE */}
+                    <motion.a
+                      href={activeData.feature.href}
                       variants={featureVariants}
                       initial="hidden"
                       animate="visible"
-                      className="w-10/12 relative overflow-hidden bg-gray-100"
+                      className="w-1/2 relative overflow-hidden bg-gray-100 block group"
                     >
                       {activeData.feature.imgSrc && (
-                        <Image
-                          src={activeData.feature.imgSrc}
-                          alt={activeData.feature.title}
-                          fill
-                          className="object-cover"
-                        />
+                        <>
+                          <Image
+                            src={activeData.feature.imgSrc}
+                            alt={activeData.feature.title}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          
+                        </>
                       )}
-                    </motion.div>
+                    </motion.a>
                   </motion.div>
                 )}
               </AnimatePresence>

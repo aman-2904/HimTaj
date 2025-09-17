@@ -76,7 +76,7 @@ const Hand = ({ setIsWhite }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="font-playfair text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] mt-20 md:mt-40 tracking-wider leading-none"
+            className="font-playfair text-6xl sm:text-7xl md:text-9xl lg:text-[14rem] mt-20 md:mt-40 tracking-wider leading-none"
           >
             collections
           </motion.h1>
@@ -87,22 +87,24 @@ const Hand = ({ setIsWhite }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="max-w-sm sm:max-w-md mx-auto text-2xl sm:text-sm md:text-xl mt-6 md:mt-12 relative z-20"
+            className="max-w-sm sm:max-w-md mx-auto text-xl sm:text-sm md:text-xl mt-6 md:mt-12 relative z-20"
           >
-            Inspired by our multi-ethnic life, we create fine jewelry to share our
-            wonderful tales...
+            From effortless everyday wear to bold statement pieces, discover collections designed for every moment
           </motion.p>
           </div>
           
         </div>
 
         {/* Bottom Center Image */}
+        {/*
+
         <motion.img
           src="Hand.png"
           alt="Scroll Effect"
           style={{ y }}
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[130px] sm:w-[150px] md:w-[180px] object-contain z-20"
         />
+        */}
       </div>
     </>
   );

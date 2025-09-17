@@ -2,24 +2,25 @@
 "use client";
 
 import React from 'react';
-import { FaRegGem } from 'react-icons/fa';
-import { BsCreditCard, BsHeadset } from 'react-icons/bs';
-import { MdOutlineVerifiedUser } from 'react-icons/md';
+import { FaRegGem,FaTruck,FaRupeeSign  } from 'react-icons/fa';
+
+
 
 const services = [
-  { icon: FaRegGem, title: 'VAULT REWARDS', description: 'Join Vault Rewards free today and enjoy exclusive member-only benefits' },
-  { icon: BsCreditCard, title: 'CREDIT & FINANCING', description: 'Expressing love should be stressful. That\'s why we offer several ways to pay' },
-  { icon: BsHeadset, title: 'JEWELRY EXPERT', description: 'Personalize your jewelry online selecting stone type' },
-  { icon: MdOutlineVerifiedUser, title: 'PROTECTION PLANS', description: 'Our protection plans make it easy to keep your precious jewelry safe' },
+  { icon: FaRegGem, title: 'PREMIUM PRODUCTS', description: 'Top-notch quality for all your needs.' },
+  { icon: FaTruck, title: 'FREE DELIVERY', description: 'Fast and free delivery, always on time!' },
+  { icon: FaRupeeSign , title: 'BEST VALUE', description: 'Unbeatable deals that fit your budget.' },
+  
 ];
 
 const Services = () => (
-  <section className="bg-white py-20 px-4 sm:px-6 lg:px-8 relative ">
+  <section className="bg-white py-40 px-4 sm:px-6 lg:px-8 relative ">
     <div className="max-w-7xl mx-auto">
-      <h2 className="text-center text-3xl tracking-widest text-[#3A3A3A] mb-12">
-        LUMILUX AT YOUR SERVICE
+      <h2 className="text-center text-3xl tracking-widest text-[#3A3A3A] mb-20">
+        HIMTAJ AT YOUR SERVICE
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center">
         {services.map((service, index) => {
           const Icon = service.icon;
           return (

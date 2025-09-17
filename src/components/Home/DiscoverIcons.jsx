@@ -16,9 +16,9 @@ const XIcon = () => (
 );
 
 const categories = [
-  { name: "For Men", imageUrl: "Men.png", href: "/collection/serpenti" },
-  { name: "For Women", imageUrl: "Woman.png", href: "/collection/b-zero1" },
-  { name: "For Unisex", imageUrl: "unisex.png", href: "/collection/divas-dream" },
+  { name: "Women", imageUrl: "Woman.png", href: "/collection/serpenti" },
+  { name: "Men", imageUrl: "Men.png", href: "/collection/b-zero1" },
+  { name: "Others", imageUrl: "unisex.png", href: "/collection/divas-dream" },
   
 ];
 
@@ -52,7 +52,7 @@ export default function DiscoverIcons() {
           <img src="https://images.naptol.com/usr/local/csp/staticContent/product_images/horizontal/375x375/Sumangali-Jewellery-Collection-o1.jpg" alt="Discover Icons Preview" className="w-full h-full object-cover" />
         </div>
 
-        <span className="flex-grow text-center text-lg font-light tracking-[0.2em]">CATEGORIES</span>
+        <span className="flex-grow text-center text-lg font-light tracking-[0.2em]">COLLECTIONS</span>
 
         <div className="h-8 w-px bg-stone-400/60 mx-4"></div>
 

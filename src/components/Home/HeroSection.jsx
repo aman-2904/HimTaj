@@ -35,18 +35,13 @@ export default function HeroSection() {
 
         {/* Hero Content */}
         <div className="relative z-10 text-white p-8 md:p-12 max-w-lg mb-8 ml-8">
-          <h1 className="font-serif text-5xl md:text-6xl font-normal drop-shadow-lg">
-            From Craftsmanship to Artsmanship
+          <h1 className="font-serif text-4xl md:text-6xl font-normal drop-shadow-lg">
+            Jewellery for Every Chapter
           </h1>
-          <p className="text-lg md:text-xl my-6 drop-shadow-md">
-            Artisans with an Artistic Soul
+          
+          <p className="text-md md:text-xl my-6 drop-shadow-md inline-block text-sm tracking-widest no-underline text-white pb-2 border-b border-white hover:border-gray-300">
+            From subtle silver to statement gold, Himtaj creates pieces that celebrate who you are—today and forever.
           </p>
-          <a
-            href="#"
-            className="inline-block text-sm tracking-widest no-underline text-white pb-2 border-b border-white hover:border-gray-300"
-          >
-            DISCOVER THE HIGH JEWELLERY COLLECTION
-          </a>
         </div>
       </div>
       
