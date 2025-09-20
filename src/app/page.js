@@ -4,9 +4,9 @@ import Collections from "@/components/Home/Collections";
 
 import DiscoverIcons from "@/components/Home/DiscoverIcons";
 import DiscoverSection from "@/components/Home/DiscoverSection";
-
-
-
+import HeroSection from "@/components/Home/HeroSection";
+import Hand from "@/components/Home/Hand";
+import Drawer from "./../components/Home/Drawer";
 import InstagramGallery from "@/components/Home/InstagramGallery";
 import Newsletter from "@/components/Home/Newsletter";
 import ProductCarousel from "@/components/Home/ProductCarousel";
@@ -22,8 +22,19 @@ import Testimonials from "@/components/Home/Testimonials";
 
 
 export default function Home() {
+    const [isHovered, setIsHovered] = useState(false);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [isWhite, setIsWhite] = useState(false); 
+
   return (
     <>
+       <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
+   
+
+           <HeroSection/> 
+    
+    
+      <Hand setIsWhite={setIsWhite} /> 
   
     <Collections/>
     <ProductCarousel/>

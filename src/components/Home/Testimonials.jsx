@@ -120,7 +120,7 @@ const GoogleReviewWidget = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto font-sans p-6 border border-white/20 bg-white/10 backdrop-blur-lg rounded-xl shadow-xl">
+    <div className="relative bg-white w-full max-w-2xl mx-auto font-sans p-6 border border-white/20 bg-white/10 backdrop-blur-lg rounded-xl shadow-xl">
       {/* Top section with logo, rating, and button */}
       <div className="flex items-center justify-between">
         {/* Left Side */}
@@ -194,7 +194,7 @@ const Testimonials = () => {
     <section className="w-full py-16 md:py-24 bg-gradient-to-br from-rose-300 via-amber-50 to-orange-300">
       <div className="container mx-auto max-w-6xl px-6">
         {/* Google Review */}
-        <div className="mb-16">
+        <div className="mb-16 relative">
           <GoogleReviewWidget />
         </div>
 

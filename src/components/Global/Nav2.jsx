@@ -21,11 +21,7 @@ function Nav2() {
         isWhite={isWhite}
         setIsWhite={setIsWhite}
       />
-      <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
-          <HeroSection/> 
-    
-    
-      <Hand setIsWhite={setIsWhite} /> 
+   
 
     </div>
   );
