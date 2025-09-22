@@ -7,6 +7,13 @@ import { Minus, Plus, Truck, RefreshCcw, ShieldCheck, CheckCircle } from "lucide
 export default function ProductPage() {
   const [quantity, setQuantity] = useState(1);
 
+  const thumbnails = [
+    "/hand.png",
+    "/Men.png",
+    "/Necklace.png",
+    "/Men1.png",
+  ];
+
   const products = [
     {
       id: 1,
@@ -55,12 +62,12 @@ export default function ProductPage() {
       <div className="container mx-auto text-black  py-10 grid grid-cols-1 lg:grid-cols-2 gap-32">
         {/* Left: Product Image + Thumbnails */}
         <div className="flex gap-5 ">
-               <div className="flex flex-col gap-3 mt-4">
-            {[1, 2, 3, 4].map((i) => (
+          <div className="flex flex-col gap-3 mt-4">
+            {thumbnails.map((src, i) => (
               <img
                 key={i}
-                src="https://via.placeholder.com/80"
-                alt="thumb"
+                src={src}
+                alt={`thumb-${i + 1}`}
                 className="w-20 h-20 border rounded cursor-pointer"
               />
             ))}
@@ -70,14 +77,14 @@ export default function ProductPage() {
             alt="Celeste Heart Bolo Bracelet"
             className="w-full rounded"
           />
-       
+
         </div>
 
         {/* Right: Product Info */}
         <div className="">
-          <h1 className="text-2xl font-bold mb-2 text-black">CELESTE HEART BOLO BRACELET</h1>
+          <h1 className="text-4xl font-bold mb-2 text-[#582434]">CELESTE HEART BOLO BRACELET</h1>
           <p className="text-gray-500 mb-4">B1569-20-014-127</p>
-          <p className="text-2xl font-semibold text-black mb-6">₹12,999.00</p>
+          <p className="text-2xl font-semibold text-[#cd8f7d] mb-6">₹12,999.00</p>
 
           {/* Quantity */}
           <div className="flex items-center gap-3 mb-6">
@@ -98,7 +105,7 @@ export default function ProductPage() {
 
           {/* Buttons */}
           <div className="flex gap-3 mb-6">
-            <button className="flex-1 bg-green-500 text-white py-3 rounded hover:bg-green-600">
+            <button className="flex-1 bg-[#582434] text-white py-3 rounded ">
               ADD TO CART
             </button>
             <button className="flex-1 border py-3 rounded hover:bg-gray-100">
@@ -118,7 +125,7 @@ export default function ProductPage() {
           {/* Dropdowns */}
           <div className="border-t border-b py-4 mb-6">
             <details>
-              <summary className="cursor-pointer py-2 font-medium">
+              <summary className="cursor-pointer py-2 font-medium text-[#582434]">
                 PRODUCT CARE
               </summary>
               <p className="text-sm text-gray-600 mt-2">
@@ -126,7 +133,7 @@ export default function ProductPage() {
               </p>
             </details>
             <details>
-              <summary className="cursor-pointer py-2 font-medium">
+              <summary className="cursor-pointer py-2 font-medium text-[#582434]">
                 SHIPPING INFORMATION
               </summary>
               <p className="text-sm text-gray-600 mt-2">
@@ -172,7 +179,7 @@ export default function ProductPage() {
               </div>
               <h3 className="text-sm font-medium mt-2">{p.title}</h3>
               <p className="text-gray-600 text-sm">{p.price}</p>
-              <button className="mt-2 w-full border py-2 rounded hover:bg-gray-100">
+              <button className="mt-2 w-full border py-2 rounded hover:bg-gray-100 ">
                 ADD TO CART
               </button>
             </div>

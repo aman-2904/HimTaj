@@ -259,19 +259,20 @@ export default function Navbar({
                 )}
               </AnimatePresence>
             </div>
-            <button
-              onClick={() => alert("Wishlist Clicked")}
-              style={{ color: iconColor }}
-              aria-label="Wishlist"
-            >
-              <HiOutlineHeart className="h-6 w-6" />
-            </button>
+           
             <button
               onClick={() => setIsLoginOpen(true)}
               style={{ color: iconColor }}
               aria-label="User"
             >
               <HiOutlineUser className="h-6 w-6" />
+            </button>
+             <button
+              onClick={() => alert("Wishlist Clicked")}
+              style={{ color: iconColor }}
+              aria-label="Wishlist"
+            >
+              <HiOutlineHeart className="h-6 w-6" />
             </button>
           </div>
         </div>
