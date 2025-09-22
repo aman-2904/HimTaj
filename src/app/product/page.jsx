@@ -9,6 +9,7 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png", // replace with real
+      imgage2: "/Necklace.png"
     },
     {
       id: 2,
@@ -16,6 +17,8 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png",
+      imgage2: "/Necklace.png"
+      
     },
     {
       id: 3,
@@ -23,6 +26,7 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png",
+      imgage2: "/Necklace.png"
     },
      {
       id: 4,
@@ -30,6 +34,7 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png", // replace with real
+     imgage2: "/Necklace.png"
     },
     {
       id: 5,
@@ -37,6 +42,7 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png",
+      imgage2: "/Necklace.png"
     },
     {
       id: 6,
@@ -44,6 +50,7 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png",
+      imgage2: "/Necklace.png"
     },
      {
       id: 7,
@@ -51,6 +58,7 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png", // replace with real
+     imgage2: "/Necklace.png"
     },
     {
       id: 8,
@@ -58,6 +66,7 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png",
+      imgage2: "/Necklace.png"
     },
     {
       id: 9,
@@ -65,6 +74,7 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png",
+      imgage2: "/Necklace.png"
     },
      {
       id: 10,
@@ -72,6 +82,7 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png", // replace with real
+      imgage2: "/Necklace.png"
     },
     {
       id: 11,
@@ -79,6 +90,7 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png",
+     imgage2: "/Necklace.png"
     },
     {
       id: 12,
@@ -86,6 +98,7 @@ export default function ProductsPage() {
       price: "Rs. 2200",
       material: "925 Silver",
       image: "/earRing.png",
+      imgage2: "/Hand.png"
     },
   ];
 

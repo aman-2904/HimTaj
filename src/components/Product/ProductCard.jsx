@@ -2,17 +2,24 @@
 "use client";
 
 import { Heart } from "lucide-react";
+import { useState } from "react";
 
 export default function ProductCard({ product }) {
+    const [hovered, setHovered] = useState(false);
   return (
     <div className="text-center group">
       {/* Image Section */}
-     <div className="relative group">
+     <div
+  className="relative group"
+  onMouseEnter={() => setHovered(true)}
+  onMouseLeave={() => setHovered(false)}
+>
   <img
-    src={product.image}
+    src={hovered ? product.imgage2 : product.image}
     alt={product.title}
-    className="w-full h-90 object-cover rounded"
+    className="w-full h-96 object-cover rounded"
   />
+    
   <a href="/singleProduct" className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded">
   <div className="absolute bottom-4 left-0 w-full bg-black bg-opacity-80 text-white text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-b">
     Quick View

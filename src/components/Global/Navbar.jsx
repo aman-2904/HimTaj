@@ -230,7 +230,6 @@ export default function Navbar({
               className="h-14 md:h-14 object-contain"
             />
           </div>
-
           {/* Right Section - Icons */}
           <div className="flex-1 flex justify-end items-center gap-6">
             <div className="flex items-center relative">
@@ -251,10 +250,10 @@ export default function Navbar({
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Search..."
                     initial={{ width: 0, opacity: 0 }}
-                    animate={{ width: 180, opacity: 1 }}
+                    animate={{ width: 200, opacity: 1 }}
                     exit={{ width: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute right-12 px-3 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white"
+                    className="absolute right-12 px-3 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#582434] outline-none bg-white"
                   />
                 )}
               </AnimatePresence>
