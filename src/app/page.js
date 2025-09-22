@@ -17,36 +17,24 @@ import Testimonials from "@/components/Home/Testimonials";
 
 
 
-
-
-
-
 export default function Home() {
-    const [isHovered, setIsHovered] = useState(false);
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const [isWhite, setIsWhite] = useState(false); 
+  const [isHovered, setIsHovered] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isWhite, setIsWhite] = useState(false);
 
   return (
     <>
-       <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
-   
-
-           <HeroSection/> 
-    
-    
-      <Hand setIsWhite={setIsWhite} /> 
-  
-    <Collections/>
-    <ProductCarousel/>
-    <Services/>
-    <DiscoverSection/>
-    
-    
-    <Testimonials/>
-    <Newsletter/>
-    <InstagramGallery/>
-    
-    <DiscoverIcons/>
+      <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
+      <HeroSection />
+      <Hand setIsWhite={setIsWhite} />
+      <Collections />
+      <ProductCarousel />
+      <Services />
+      <DiscoverSection />
+      <Testimonials />
+      <Newsletter />
+      <InstagramGallery />
+      <DiscoverIcons />
     </>
   );
 }

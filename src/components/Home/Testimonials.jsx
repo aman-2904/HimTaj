@@ -191,7 +191,7 @@ const GoogleReviewWidget = () => {
 // --- Main Reviews Section (Google + Testimonials) ---
 const Testimonials = () => {
   return (
-    <section className="w-full py-16 md:py-24 bg-gradient-to-br from-rose-300 via-amber-50 to-orange-300">
+    <section className="relative w-full py-16 md:py-24 bg-gradient-to-br from-rose-300 via-amber-50 to-orange-300">
       <div className="container mx-auto max-w-6xl px-6">
         {/* Google Review */}
         <div className="mb-16 relative">
