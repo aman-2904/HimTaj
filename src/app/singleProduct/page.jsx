@@ -3,8 +3,10 @@
 
 import { useState } from "react";
 import { Minus, Plus, Truck, RefreshCcw, ShieldCheck, CheckCircle } from "lucide-react";
+import { HiOutlineHeart } from "react-icons/hi";
 
 export default function ProductPage() {
+    const [zoomed, setZoomed] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
   const thumbnails = [
@@ -72,12 +74,21 @@ export default function ProductPage() {
               />
             ))}
           </div>
-          <img
-            src="/earRing.png" // Replace with main product image
-            alt="Celeste Heart Bolo Bracelet"
-            className="w-full rounded"
-          />
+          
+  <div className="relative w-full">
+      <img
+        src="/earRing.png"
+        alt="Celeste Heart Bolo Bracelet"
+        className={`w-full rounded cursor-pointer transition-transform duration-300 ${
+          zoomed ? "scale-150" : "scale-100"
+        }`}
+        onClick={() => setZoomed(!zoomed)}
+      />
 
+      <button className="absolute top-2 right-2 p-2 text-gray-900 bg-white rounded-full hover:text-red-700 shadow-md">
+        <HiOutlineHeart size={18} />
+      </button>
+    </div>
         </div>
 
         {/* Right: Product Info */}
@@ -177,9 +188,9 @@ export default function ProductPage() {
                   </span>
                 )}
               </div>
-              <h3 className="text-sm font-medium mt-2">{p.title}</h3>
-              <p className="text-gray-600 text-sm">{p.price}</p>
-              <button className="mt-2 w-full border py-2 rounded hover:bg-gray-100 ">
+              <h3 className="text-sm font-medium mt-2 text-[#582434] ">{p.title}</h3>
+              <p className="text-sm text-[#cd8f7d]">{p.price}</p>
+              <button className="mt-2 w-full border py-2 bg-[#582434] text-white rounded  ">
                 ADD TO CART
               </button>
             </div>
@@ -188,7 +199,7 @@ export default function ProductPage() {
 
         {/* View All */}
         <div className="text-center mt-8">
-          <button className="border px-6 py-2 rounded hover:bg-gray-100">
+          <button className="border px-6 py-2 bg-[#582434] rounded text-white">
             VIEW ALL
           </button>
         </div>

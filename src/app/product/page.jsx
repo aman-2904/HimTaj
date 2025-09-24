@@ -33,7 +33,7 @@ export default function ProductsPage() {
       title: "Silver-Toned Drop Earrings",
       price: "Rs. 2200",
       material: "925 Silver",
-      image: "/earRing.png", // replace with real
+      image: "/earRing.png", 
      imgage2: "/Necklace.png"
     },
     {

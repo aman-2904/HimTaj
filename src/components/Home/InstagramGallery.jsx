@@ -55,7 +55,7 @@ const InstagramIcon = () => (
 
 const InstagramGallery = () => {
   return (
-    <section className="bg-gray-50   z-60 relative">
+    <section className="bg-gray-50   z-30 relative">
       <div className=" ">
         {/* Section Header */}
         

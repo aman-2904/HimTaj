@@ -266,7 +266,7 @@ const allProducts = [
       'https://images.unsplash.com/photo-1540574163024-58eab325209f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     badge: 'Best Seller',
   },
-  // ... rest of your product list unchanged
+
 ];
 
 // List of categories for the filter tabs
@@ -327,7 +327,7 @@ const Collections = () => {
               className={`px-6 py-3 rounded-full font-medium text-sm transition-colors duration-300 whitespace-nowrap ${
                 activeCategory === category
                   ? "bg-[#582434] text-white"
-                  : "bg-[#582434] text-white  hover:text-gray-400 border border-gray-900"
+                  : "bg-[#582434] text-white  hover:text-gray-400 border border-gray-900 hover:opacity-0"
               }`}
             >
               {category}
@@ -343,7 +343,7 @@ const Collections = () => {
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="group relative bg-white overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
+              className="group relative  overflow-hidden   transition-shadow duration-300"
             >
               <div className="relative w-full h-[421px]">
                 <img
@@ -354,14 +354,14 @@ const Collections = () => {
                 <img
                 src={product.hoverimg}
                 alt={product.name}
-                className="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                className="absolute top-0 left-0 w-full h-full rounded-t-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 />
                 <span className="absolute top-4 left-4 bg-white text-black text-xs font-semibold px-3 py-1 rounded-full">
                   {product.badge}
                 </span>
                 <span className="absolute top-2 right-4 text-white text-xs font-semibold rounded-full">
-                  <button className="p-2 text-red-500 hover:text-red-700">
-                    <HiOutlineHeart size={28} />
+                  <button className="p-2 text-gray-900 bg-white rounded-full hover:text-red-700">
+                    <HiOutlineHeart size={18} />
                   </button>
                 </span>
                 {/* Card Overlay */}
