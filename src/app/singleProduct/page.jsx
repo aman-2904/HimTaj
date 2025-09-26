@@ -1,4 +1,4 @@
-// app/product/page.tsx (Next.js 13+ with App Router)
+// app/product/page.jsx
 "use client";
 
 import { useState } from "react";
@@ -6,52 +6,18 @@ import { Minus, Plus, Truck, RefreshCcw, ShieldCheck, CheckCircle } from "lucide
 import { HiOutlineHeart } from "react-icons/hi";
 
 export default function ProductPage() {
-    const [zoomed, setZoomed] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [zoomVisible, setZoomVisible] = useState(false);
+  const [backgroundPos, setBackgroundPos] = useState("50% 50%");
 
-  const thumbnails = [
-    "/hand.png",
-    "/Men.png",
-    "/Necklace.png",
-    "/Men1.png",
-  ];
+  const thumbnails = ["/hand.png", "/Men.png", "/Necklace.png", "/Men1.png"];
 
-  const products = [
-    {
-      id: 1,
-      title: "BOUGIE INFINITY CUT CRYSTAL STUDS",
-      price: "₹5,999.00",
-      image: "/hand.png", // replace with real
-    },
-    {
-      id: 2,
-      title: "BANGER MULTI-COLOURED LAYERED NECKLACE",
-      price: "₹12,299.00",
-      image: "/HeroS.png",
-      bestseller: true,
-    },
-    {
-      id: 3,
-      title: "BOW SPIKED NECKLACE",
-      price: "₹2,999.00",
-      image: "/ring.png",
-      bestseller: true,
-    },
-    {
-      id: 4,
-      title: "MARQUISE MIRROR STUDS",
-      price: "₹2,999.00",
-      image: "/Men.png",
-      bestseller: true,
-    },
-    {
-      id: 5,
-      title: "LIMELIGHT MIRROR & METAL PYRAMID HOOP EARRINGS",
-      price: "₹4,999.00",
-      image: "/unisex.png",
-      bestseller: true,
-    },
-  ];
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.pageX - left - window.scrollX) / width) * 100;
+    const y = ((e.pageY - top - window.scrollY) / height) * 100;
+    setBackgroundPos(`${x}% ${y}%`);
+  };
 
   return (
     <div className="font-sans mt-26 bg-white text-black">
@@ -61,39 +27,59 @@ export default function ProductPage() {
       </div>
 
       {/* Product Section */}
-      <div className="container mx-auto text-black  py-10 grid grid-cols-1 lg:grid-cols-2 gap-32">
+      <div className="container mx-auto text-black py-10 grid grid-cols-1 lg:grid-cols-2 gap-32">
         {/* Left: Product Image + Thumbnails */}
-        <div className="flex gap-5 ">
+        <div className="flex gap-5">
+          {/* Thumbnails */}
           <div className="flex flex-col gap-3 mt-4">
             {thumbnails.map((src, i) => (
               <img
                 key={i}
                 src={src}
                 alt={`thumb-${i + 1}`}
-                className="w-20 h-20 border rounded cursor-pointer"
+                className="w-20 h-20 rounded cursor-pointer"
               />
             ))}
           </div>
-          
-  <div className="relative w-full">
-      <img
-        src="/earRing.png"
-        alt="Celeste Heart Bolo Bracelet"
-        className={`w-full rounded cursor-pointer transition-transform duration-300 ${
-          zoomed ? "scale-150" : "scale-100"
-        }`}
-        onClick={() => setZoomed(!zoomed)}
-      />
 
-      <button className="absolute top-2 right-2 p-2 text-gray-900 bg-white rounded-full hover:text-red-700 shadow-md">
-        <HiOutlineHeart size={18} />
-      </button>
-    </div>
+          {/* Main Image + Zoom Effect */}
+          <div
+            className="relative w-full"
+            onMouseEnter={() => setZoomVisible(true)}
+            onMouseLeave={() => setZoomVisible(false)}
+            onMouseMove={handleMouseMove}
+          >
+            {/* Normal Image */}
+            <img
+              src="/earRing.png"
+              alt="Celeste Heart Bolo Bracelet"
+              className="w-full rounded"
+            />
+
+            {/* Wishlist Button */}
+            <button className="absolute top-2 right-2 p-2 text-gray-900 bg-white rounded-full hover:text-red-700 shadow-md">
+              <HiOutlineHeart size={18} />
+            </button>
+
+            {/* Zoomed Image */}
+            {zoomVisible && (
+              <div
+                className="hidden lg:block absolute top-0 left-[105%] w-[700px] h-[600px] rounded bg-no-repeat bg-cover z-20"
+                style={{
+                  backgroundImage: "url(/earRing.png)",
+                  backgroundPosition: backgroundPos,
+                  backgroundSize: "200%", // zoom level
+                }}
+              />
+            )}
+          </div>
         </div>
 
         {/* Right: Product Info */}
-        <div className="">
-          <h1 className="text-4xl font-bold mb-2 text-[#582434]">CELESTE HEART BOLO BRACELET</h1>
+        <div>
+          <h1 className="text-4xl font-bold mb-2 text-[#582434]">
+            CELESTE HEART BOLO BRACELET
+          </h1>
           <p className="text-gray-500 mb-4">B1569-20-014-127</p>
           <p className="text-2xl font-semibold text-[#cd8f7d] mb-6">₹12,999.00</p>
 
@@ -116,102 +102,13 @@ export default function ProductPage() {
 
           {/* Buttons */}
           <div className="flex gap-3 mb-6">
-            <button className="flex-1 bg-[#582434] text-white py-3 rounded ">
+            <button className="flex-1 bg-[#582434] text-white py-3 rounded">
               ADD TO CART
             </button>
             <button className="flex-1 border py-3 rounded hover:bg-gray-100">
               BUY NOW
             </button>
           </div>
-
-          {/* Description */}
-          <p className="text-gray-700 mb-6">
- 
-          </p>
-          
-
-
-          {/* Dropdowns */}
-<div className="border-t border-b py-4 mb-6 space-y-2">
-   <details>
-    <summary className="cursor-pointer py-2 font-medium text-[#582434] uppercase">
-      Description
-    </summary>
-    <p className="text-sm text-gray-600 mt-2">
-                 The Celeste Heart Bolo Bracelet is a timeless statement piece,
-            designed with high-quality crystal zirconia stones and crafted in
-            rhodium-plated brass. Inspired by classic tennis jewellery, this
-            heart-shaped bolo bracelet radiates luxury, making it perfect for
-            parties, cocktail events, and festive occasions.
-    </p>
-    </details>
-  <details>
-    <summary className="cursor-pointer py-2 font-medium text-[#582434]">
-      PRODUCT CARE
-    </summary>
-    <p className="text-sm text-gray-600 mt-2">
-      Store in a dry place and avoid moisture.
-    </p>
-  </details>
-  <details>
-    <summary className="cursor-pointer py-2 font-medium text-[#582434]">
-      SHIPPING INFORMATION
-    </summary>
-    <p className="text-sm text-gray-600 mt-2">
-      Free shipping on all orders.
-    </p>
-  </details>
-  <details>
-    <summary className="cursor-pointer py-2 font-medium text-[#582434]">
-      SIZE GUIDE
-    </summary>
-    <div className="text-sm text-gray-600 mt-2 space-y-2">
-      <p>
-        <strong>Bracelet Length:</strong> 16-22 cm adjustable
-      </p>
-      <p>
-        <strong>Ring Size:</strong> 5-9 (US), 15-19 (IN)
-      </p>
-      <p>
-        <strong>Necklace Length:</strong> 16-20 inches
-      </p>
-      <p>
-        Use the chart below for reference:
-      </p>
-      <table className="w-full text-left text-sm border mt-2">
-        <thead>
-          <tr className="border-b">
-            <th className="p-1">US Size</th>
-            <th className="p-1">IN Size (cm)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="p-1">5</td>
-            <td className="p-1">15</td>
-          </tr>
-          <tr className="bg-gray-50">
-            <td className="p-1">6</td>
-            <td className="p-1">16</td>
-          </tr>
-          <tr>
-            <td className="p-1">7</td>
-            <td className="p-1">17</td>
-          </tr>
-          <tr className="bg-gray-50">
-            <td className="p-1">8</td>
-            <td className="p-1">18</td>
-          </tr>
-          <tr>
-            <td className="p-1">9</td>
-            <td className="p-1">19</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
-</div>
-
 
           {/* Features */}
           <ul className="space-y-2 text-gray-700">
@@ -228,40 +125,6 @@ export default function ProductPage() {
               <CheckCircle size={16} /> Hypoallergenic | Tarnish Free
             </li>
           </ul>
-        </div>
-      </div>
-
-      {/* Recommended Products */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-          {products.map((p) => (
-            <div key={p.id} className="text-center">
-              <div className="relative">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-full h-60 object-cover rounded"
-                />
-                {p.bestseller && (
-                  <span className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded">
-                    Bestseller
-                  </span>
-                )}
-              </div>
-              <h3 className="text-sm font-medium mt-2 text-[#582434] ">{p.title}</h3>
-              <p className="text-sm text-[#cd8f7d]">{p.price}</p>
-              <button className="mt-2 w-full border py-2 bg-[#582434] text-white rounded  ">
-                ADD TO CART
-              </button>
-            </div>
-          ))}
-        </div>
-
-        {/* View All */}
-        <div className="text-center mt-8">
-          <button className="border px-6 py-2 bg-[#582434] rounded text-white">
-            VIEW ALL
-          </button>
         </div>
       </div>
     </div>
