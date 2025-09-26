@@ -11,24 +11,24 @@ const menuData = {
     subCategories: {
       "Necklace": {
         collections: [
-          { name: "All Necklaces", href: "#", imgSrc: "/earRing.png" },
-          { name: "Chain", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Pendant", href: "#", imgSrc: "/ring.png" },
-          { name: "Tennis Necklace", href: "#", imgSrc: "/ring.png" },
-          { name: "Charms + Pendants", href: "#", imgSrc: "/ring.png" },
+          { name: "All Necklaces", href: "#", imgSrc: "/MENU/2.png" },
+          { name: "Chain", href: "#", imgSrc: "/MENU/3.png" },
+          { name: "Tennis", href: "#", imgSrc: "/MENU/4.png" },
+          { name: "Party Collections", href: "#", imgSrc: "/MENU/5.png" },
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Octo Watch Collection",
           href: "#",
         },
       },
       "Bracelet": {
         collections: [
-          { name: "All Bracelets", href: "#", imgSrc: "/ring.png" },
-          { name: "Chain Bracelets", href: "#", imgSrc: "/earRing.png" },
-          { name: "Cuffs + Bangle Bracelets", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Tennis Bracelets", href: "#", imgSrc: "/earRing.png" },
+          { name: "All Bracelets", href: "#", imgSrc: "/MENU/7.png" },
+          { name: "Chain Bracelets", href: "#", imgSrc: "/MENU/8.png" },
+          { name: "Cuffs + Bangle Bracelets", href: "#", imgSrc: "/MENU/9.png" },
+          { name: "Tennis Bracelets", href: "#", imgSrc: "/MENU/10.png" },
+       
         ],
         feature: {
           imgSrc: "/NeckPotrait.avif",
@@ -38,10 +38,10 @@ const menuData = {
       },
       "Ring": {
         collections: [
-          { name: "All Rings", href: "#", imgSrc: "/ring.png" },
-          { name: "Stackable Rings", href: "#", imgSrc: "/earRing.png" },
-          { name: "Statement Rings", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Wedding Bands", href: "#", imgSrc: "/earRing.png" },
+          { name: "All Rings", href: "#", imgSrc: "/MENU/12.png" },
+          { name: "Stackable Rings", href: "#", imgSrc: "/MENU/13.png" },
+          { name: "Statement Rings", href: "#", imgSrc: "/MENU/14.png" },
+          { name: "Wedding Bands", href: "#", imgSrc: "/MENU/15.png" },
         ],
         feature: {
           imgSrc: "/NeckPotrait.avif",
@@ -51,10 +51,10 @@ const menuData = {
       },
       "Earring": {
         collections: [
-          { name: "All Earrings", href: "#", imgSrc: "/ring.png" },
-          { name: "Studs", href: "#", imgSrc: "/earRing.png" },
-          { name: "Hoops", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Single Earrings", href: "#", imgSrc: "/earRing.png" },
+          { name: "All Earrings", href: "#", imgSrc: "/MENU/17.png" },
+          { name: "Studs", href: "#", imgSrc: "/MENU/18.png" },
+          { name: "Hoops", href: "#", imgSrc: "/MENU/18.png" },
+          { name: "Single Earrings", href: "#", imgSrc: "/MENU/20.png" },
         ],
         feature: {
           imgSrc: "/NeckPotrait.avif",
@@ -62,16 +62,30 @@ const menuData = {
           href: "#",
         },
       },
+        "All Jewellery": {
+        collections: [
+          { name: "Earrings", href: "#", imgSrc: "/MENU/22.png" },
+          { name: "Necklaces", href: "#", imgSrc: "/MENU/23.png" },
+          { name: "Bracelets", href: "#", imgSrc: "/MENU/24.png" },
+          { name: "Rings", href: "#", imgSrc: "/MENU/24.png" },
+        ],
+        feature: {
+          imgSrc: "/NeckPotrait.avif",
+          title: "Unisex Collection",
+          href: "#",
+        },
+      },
+
     },
   },
   men: {
     subCategories: {
       "Necklaces": {
         collections: [
-          { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
-          { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
-          { name: "Rings", href: "#", imgSrc: "/ring.png" },
+          { name: "All Necklaces", href: "#", imgSrc: "/MENU/23.png" },
+          { name: "Chains", href: "#", imgSrc: "/MENU/24.png" },
+          { name: "Chain + Pendent", href: "#", imgSrc: "/MENU/25.png" },
+          { name: "Party Collections", href: "#", imgSrc: "/MENU/26.png" },
         ],
         feature: {
           imgSrc: "/NeckPotrait.avif",
@@ -81,10 +95,10 @@ const menuData = {
       },
       "Bracelets": {
         collections: [
-          { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
-          { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
-          { name: "Rings", href: "#", imgSrc: "/ring.png" },
+          { name: "All Bracelets", href: "#", imgSrc: "/MENU/28.png" },
+          { name: "Minimalists", href: "#", imgSrc: "/MENU/29.png" },
+          { name: "Cuffs", href: "#", imgSrc: "/MENU/30.png" },
+          { name: "Party collections", href: "#", imgSrc: "/MENU/31.png" },
         ],
         feature: {
           imgSrc: "/NeckPotrait.avif",
@@ -94,10 +108,10 @@ const menuData = {
       },
       "Ring": {
         collections: [
-          { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
-          { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
-          { name: "Rings", href: "#", imgSrc: "/ring.png" },
+          { name: "All Rings", href: "#", imgSrc: "/MENU/33.png" },
+          { name: "Necklaces", href: "#", imgSrc: "/MENU/34.png" },
+          { name: "Bracelets", href: "#", imgSrc: "/MENU/35.png" },
+       
         ],
         feature: {
           imgSrc: "/NeckPotrait.avif",
@@ -105,32 +119,32 @@ const menuData = {
           href: "#",
         },
       },
-      "Studs": {
-        collections: [
-          { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
-          { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
-          { name: "Rings", href: "#", imgSrc: "/ring.png" },
-        ],
-        feature: {
-          imgSrc: "/NeckPotrait.avif",
-          title: "Unisex Collection",
-          href: "#",
-        },
-      },
-      "All Jewellery": {
-        collections: [
-          { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
-          { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
-          { name: "Rings", href: "#", imgSrc: "/ring.png" },
-        ],
-        feature: {
-          imgSrc: "/NeckPotrait.avif",
-          title: "Unisex Collection",
-          href: "#",
-        },
-      },
+      // "Studs": {
+      //   collections: [
+      //     { name: "Earrings", href: "#", imgSrc: "/MENU/37.png" },
+      //     { name: "Necklaces", href: "#", imgSrc: "/MENU/33.png" },
+      //     { name: "Bracelets", href: "#", imgSrc: "/MENU/33.png" },
+      //     { name: "Rings", href: "#", imgSrc: "/MENU/33.png" },
+      //   ],
+      //   feature: {
+      //     imgSrc: "/NeckPotrait.avif",
+      //     title: "Unisex Collection",
+      //     href: "#",
+      //   },
+      // },
+      // "All Jewellery": {
+      //   collections: [
+      //     { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
+      //     { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
+      //     { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
+      //     { name: "Rings", href: "#", imgSrc: "/ring.png" },
+      //   ],
+      //   feature: {
+      //     imgSrc: "/NeckPotrait.avif",
+      //     title: "Unisex Collection",
+      //     href: "#",
+      //   },
+      // },
 
     },
   },
@@ -151,10 +165,9 @@ const menuData = {
       },
       "Anklet": {
         collections: [
-          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
-          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
-          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+          { name: "Luxury Earrings", href: "#", imgSrc: "/MENU/40.png" },
+          { name: "Luxury Necklaces", href: "#", imgSrc:  "/MENU/41.png" },
+          { name: "Luxury Bracelets", href: "#", imgSrc: "/MENU/42.png" },
         ],
         feature: {
           imgSrc: "/NeckPotrait.avif",
@@ -467,7 +480,7 @@ export default function Drawer({ isOpen, onClose }) {
                       ))}
                     </motion.div>
 
-                    {/* FEATURE IMAGE */}
+                    {/* FEATURE VIDEO */}
                     <motion.a
                       href={activeData.feature.href}
                       variants={featureVariants}
@@ -475,16 +488,24 @@ export default function Drawer({ isOpen, onClose }) {
                       animate="visible"
                       className="w-1/2 relative overflow-hidden bg-gray-100 block group"
                     >
-                      {activeData.feature.imgSrc && (
-                        <>
+                      {activeData.feature.imgSrc && activeData.feature.imgSrc.endsWith('.mp4') ? (
+                        <video
+                          src={activeData.feature.imgSrc}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      ) : (
+                        activeData.feature.imgSrc && (
                           <Image
                             src={activeData.feature.imgSrc}
                             alt={activeData.feature.title}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
                           />
-                          
-                        </>
+                        )
                       )}
                     </motion.a>
                   </motion.div>

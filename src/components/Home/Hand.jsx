@@ -26,7 +26,7 @@ const Hand = ({ setIsWhite }) => {
 
   // Scroll-based animation
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [200, -800]);
+  const y = useTransform(scrollYProgress, [0, 1], [180, -1000]);
 
   // Track scroll position to toggle navbar color
   useEffect(() => {
@@ -62,7 +62,7 @@ const Hand = ({ setIsWhite }) => {
 
       <div
         ref={handRef}
-        className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-tr from-rose-300 via-amber-50 to-orange-300 overflow-hidden font-sans text-center text-[#bca896] p-4"
+        className="relative flex flex-col items-center justify-center min-h-[50vh] bg-gradient-to-tr from-rose-300 via-amber-50 to-orange-300 overflow-hidden font-sans text-center text-[#bca896] p-4"
       >
         {/* Draggable Lines */}
         <DraggableLine initialLeft="25%" constraintsRef={constraintsRef} />
@@ -76,9 +76,11 @@ const Hand = ({ setIsWhite }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="font-playfair text-6xl sm:text-7xl md:text-9xl lg:text-[14rem] mt-20 md:mt-40 tracking-wider leading-none"
+            className="font-playfair text-6xl sm:text-7xl md:text-9xl lg:text-[15.2rem] mt-20 md:mt-40 tracking-wider leading-none"
           >
-            collections
+            <div className="flex items-center justify-center">
+            c<span><img src="/ring1.png" alt="" className="w-50 mt-10"/></span>llecti<span><img src="/ring1.png" alt=""  className="w-50 mt-10"/></span>ns
+            </div>
           </motion.h1>
           </div>
          
@@ -87,7 +89,7 @@ const Hand = ({ setIsWhite }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="max-w-sm sm:max-w-md mx-auto text-xl sm:text-sm md:text-xl mt-6 md:mt-12 relative z-20"
+            className="max-w-sm sm:max-w-md mx-auto mr-100 text-xl sm:text-sm md:text-xl mt-6 md:mt-12 relative z-20"
           >
             From effortless everyday wear to bold statement pieces, discover collections designed for every moment
           </motion.p>
@@ -96,15 +98,15 @@ const Hand = ({ setIsWhite }) => {
         </div>
 
         {/* Bottom Center Image */}
-        {/*
+        
 
         <motion.img
-          src="Hand.png"
+          src="/hand1.png"
           alt="Scroll Effect"
           style={{ y }}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[130px] sm:w-[150px] md:w-[180px] object-contain z-20"
+          className="absolute -mb-30 -mr-40 w-[130px] sm:w-[150px] md:w-[480px]  z-20 "
         />
-        */}
+       
       </div>
     </>
   );

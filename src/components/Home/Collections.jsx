@@ -326,8 +326,8 @@ const Collections = () => {
               onClick={() => setActiveCategory(category)}
               className={`px-6 py-3 rounded-full font-medium text-sm transition-colors duration-300 whitespace-nowrap ${
                 activeCategory === category
-                  ? "bg-[#582434] text-white"
-                  : "bg-[#582434] text-white  hover:text-gray-400 border border-gray-900 hover:opacity-0"
+                  ? "bg-[#582434] text-white hover:text-[#582434] hover:bg-white"
+                  : "bg-[#582434] text-white  hover:text-[#582434] hover:bg-white border border-gray-900 hover:opacity-90"
               }`}
             >
               {category}

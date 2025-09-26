@@ -12,6 +12,9 @@ import Newsletter from "@/components/Home/Newsletter";
 import ProductCarousel from "@/components/Home/ProductCarousel";
 import Services from "@/components/Home/Services";
 import Testimonials from "@/components/Home/Testimonials";
+import Ring3D from "@/components/Home/ring3D";
+import RingEmbed from "@/components/Home/RingEmded";
+import CollectionsRing from "@/components/Home/CollectionsRing";
 
 
 
@@ -26,6 +29,7 @@ export default function Home() {
     <>
       <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
       <HeroSection />
+      {/* <CollectionsRing/> */}
       <Hand setIsWhite={setIsWhite} />
       <Collections />
       <ProductCarousel />
@@ -35,6 +39,8 @@ export default function Home() {
       <Newsletter />
       <InstagramGallery />
       <DiscoverIcons />
+      {/* <Ring3D/> */}
+      {/* <RingEmbed/> */}
     </>
   );
 }

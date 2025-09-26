@@ -126,32 +126,92 @@ export default function ProductPage() {
 
           {/* Description */}
           <p className="text-gray-700 mb-6">
-            The Celeste Heart Bolo Bracelet is a timeless statement piece,
+ 
+          </p>
+          
+
+
+          {/* Dropdowns */}
+<div className="border-t border-b py-4 mb-6 space-y-2">
+   <details>
+    <summary className="cursor-pointer py-2 font-medium text-[#582434] uppercase">
+      Description
+    </summary>
+    <p className="text-sm text-gray-600 mt-2">
+                 The Celeste Heart Bolo Bracelet is a timeless statement piece,
             designed with high-quality crystal zirconia stones and crafted in
             rhodium-plated brass. Inspired by classic tennis jewellery, this
             heart-shaped bolo bracelet radiates luxury, making it perfect for
             parties, cocktail events, and festive occasions.
-          </p>
+    </p>
+    </details>
+  <details>
+    <summary className="cursor-pointer py-2 font-medium text-[#582434]">
+      PRODUCT CARE
+    </summary>
+    <p className="text-sm text-gray-600 mt-2">
+      Store in a dry place and avoid moisture.
+    </p>
+  </details>
+  <details>
+    <summary className="cursor-pointer py-2 font-medium text-[#582434]">
+      SHIPPING INFORMATION
+    </summary>
+    <p className="text-sm text-gray-600 mt-2">
+      Free shipping on all orders.
+    </p>
+  </details>
+  <details>
+    <summary className="cursor-pointer py-2 font-medium text-[#582434]">
+      SIZE GUIDE
+    </summary>
+    <div className="text-sm text-gray-600 mt-2 space-y-2">
+      <p>
+        <strong>Bracelet Length:</strong> 16-22 cm adjustable
+      </p>
+      <p>
+        <strong>Ring Size:</strong> 5-9 (US), 15-19 (IN)
+      </p>
+      <p>
+        <strong>Necklace Length:</strong> 16-20 inches
+      </p>
+      <p>
+        Use the chart below for reference:
+      </p>
+      <table className="w-full text-left text-sm border mt-2">
+        <thead>
+          <tr className="border-b">
+            <th className="p-1">US Size</th>
+            <th className="p-1">IN Size (cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="p-1">5</td>
+            <td className="p-1">15</td>
+          </tr>
+          <tr className="bg-gray-50">
+            <td className="p-1">6</td>
+            <td className="p-1">16</td>
+          </tr>
+          <tr>
+            <td className="p-1">7</td>
+            <td className="p-1">17</td>
+          </tr>
+          <tr className="bg-gray-50">
+            <td className="p-1">8</td>
+            <td className="p-1">18</td>
+          </tr>
+          <tr>
+            <td className="p-1">9</td>
+            <td className="p-1">19</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</div>
 
-          {/* Dropdowns */}
-          <div className="border-t border-b py-4 mb-6">
-            <details>
-              <summary className="cursor-pointer py-2 font-medium text-[#582434]">
-                PRODUCT CARE
-              </summary>
-              <p className="text-sm text-gray-600 mt-2">
-                Store in a dry place and avoid moisture.
-              </p>
-            </details>
-            <details>
-              <summary className="cursor-pointer py-2 font-medium text-[#582434]">
-                SHIPPING INFORMATION
-              </summary>
-              <p className="text-sm text-gray-600 mt-2">
-                Free shipping on all orders.
-              </p>
-            </details>
-          </div>
 
           {/* Features */}
           <ul className="space-y-2 text-gray-700">
