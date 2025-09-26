@@ -31,7 +31,7 @@ const menuData = {
        
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Iconic Jewellery",
           href: "#",
         },
@@ -44,7 +44,7 @@ const menuData = {
           { name: "Wedding Bands", href: "#", imgSrc: "/MENU/15.png" },
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Iconic Jewellery",
           href: "#",
         },
@@ -53,11 +53,11 @@ const menuData = {
         collections: [
           { name: "All Earrings", href: "#", imgSrc: "/MENU/17.png" },
           { name: "Studs", href: "#", imgSrc: "/MENU/18.png" },
-          { name: "Hoops", href: "#", imgSrc: "/MENU/18.png" },
-          { name: "Single Earrings", href: "#", imgSrc: "/MENU/20.png" },
+          { name: "Hoops", href: "#", imgSrc: "/MENU/19.png" },
+          { name: "Party Collections", href: "#", imgSrc: "/MENU/20.png" },
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Iconic Jewellery",
           href: "#",
         },
@@ -70,7 +70,7 @@ const menuData = {
           { name: "Rings", href: "#", imgSrc: "/MENU/24.png" },
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Unisex Collection",
           href: "#",
         },
@@ -88,7 +88,7 @@ const menuData = {
           { name: "Party Collections", href: "#", imgSrc: "/MENU/26.png" },
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Unisex Collection",
           href: "#",
         },
@@ -101,7 +101,7 @@ const menuData = {
           { name: "Party collections", href: "#", imgSrc: "/MENU/31.png" },
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Unisex Collection",
           href: "#",
         },
@@ -109,94 +109,64 @@ const menuData = {
       "Ring": {
         collections: [
           { name: "All Rings", href: "#", imgSrc: "/MENU/33.png" },
-          { name: "Necklaces", href: "#", imgSrc: "/MENU/34.png" },
-          { name: "Bracelets", href: "#", imgSrc: "/MENU/35.png" },
+          { name: "Solitaire", href: "#", imgSrc: "/MENU/34.png" },
+          { name: "Stackable", href: "#", imgSrc: "/MENU/35.png" },
        
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Unisex Collection",
           href: "#",
         },
       },
-      // "Studs": {
-      //   collections: [
-      //     { name: "Earrings", href: "#", imgSrc: "/MENU/37.png" },
-      //     { name: "Necklaces", href: "#", imgSrc: "/MENU/33.png" },
-      //     { name: "Bracelets", href: "#", imgSrc: "/MENU/33.png" },
-      //     { name: "Rings", href: "#", imgSrc: "/MENU/33.png" },
-      //   ],
-      //   feature: {
-      //     imgSrc: "/NeckPotrait.avif",
-      //     title: "Unisex Collection",
-      //     href: "#",
-      //   },
-      // },
-      // "All Jewellery": {
-      //   collections: [
-      //     { name: "Earrings", href: "#", imgSrc: "/earRing.png" },
-      //     { name: "Necklaces", href: "#", imgSrc: "/Necklace.png" },
-      //     { name: "Bracelets", href: "#", imgSrc: "/ring.png" },
-      //     { name: "Rings", href: "#", imgSrc: "/ring.png" },
-      //   ],
-      //   feature: {
-      //     imgSrc: "/NeckPotrait.avif",
-      //     title: "Unisex Collection",
-      //     href: "#",
-      //   },
-      // },
-
     },
   },
   others: {
     subCategories: {
       "Idols & Coins": {
         collections: [
-          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
-          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
-          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+          { name: "Murti", href: "#", imgSrc: "/MENU/37.png" },
+          { name: "Coins", href: "#", imgSrc: "/MENU/38.png" },
+
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Premium Collection",
           href: "#",
         },
       },
       "Anklet": {
         collections: [
-          { name: "Luxury Earrings", href: "#", imgSrc: "/MENU/40.png" },
-          { name: "Luxury Necklaces", href: "#", imgSrc:  "/MENU/41.png" },
-          { name: "Luxury Bracelets", href: "#", imgSrc: "/MENU/42.png" },
+          { name: "All Anklet", href: "#", imgSrc: "/MENU/40.png" },
+          { name: "Minimalist", href: "#", imgSrc:  "/MENU/41.png" },
+          { name: "Heavy", href: "#", imgSrc: "/MENU/42.png" },
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Premium Collection",
           href: "#",
         },
       },
       "Kid's Jewellery": {
         collections: [
-          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
-          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
-          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+          { name: "Cuffs", href: "#", imgSrc: "/MENU/45.png" },
+          { name: "Necklaces", href: "#", imgSrc: "/MENU/46.png" },
+          
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Premium Collection",
           href: "#",
         },
       },
       "Gold Jewellery": {
         collections: [
-          { name: "Luxury Earrings", href: "#", imgSrc: "/earRing.png" },
-          { name: "Luxury Necklaces", href: "#", imgSrc: "/Necklace.png" },
-          { name: "Luxury Bracelets", href: "#", imgSrc: "/ring.png" },
-          { name: "Luxury Rings", href: "#", imgSrc: "/ring.png" },
+          { name: "MENS", href: "#", imgSrc: "/MENU/48.png" },
+          { name: "WOMENS", href: "#", imgSrc: "/MENU/49.png" },
+         
         ],
         feature: {
-          imgSrc: "/NeckPotrait.avif",
+          imgSrc: "/final.mp4",
           title: "Premium Collection",
           href: "#",
         },

@@ -19,7 +19,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-[#F8F5F2] text-gray-700 font-sans relative overflow-hidden py-20 z-70">
+    <footer className="bg-[#F8F5F2] text-gray-700 font-sans relative overflow-hidden py-20 z-70 ">
       {/* Background Scrolling Text */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none">
         <h2 
@@ -52,9 +52,9 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold tracking-widest text-lg mb-4">USEFUL LINKS</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Delivery Information</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Journal</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Shipping</a></li>
+              <li><a href="/delivery-info" className="hover:text-gray-900 transition-colors">Delivery Information</a></li>
+              <li><a href="/return-exchange" className="hover:text-gray-900 transition-colors">Return & Exchange</a></li>
+              <li><a href="/delivery-info" className="hover:text-gray-900 transition-colors">Shipping</a></li>
               <li><a href="#" className="hover:text-gray-900 transition-colors">Terms & Conditions</a></li>
             </ul>
           </div>
@@ -62,10 +62,10 @@ export default function Footer() {
             <h3 className="font-semibold tracking-widest text-lg mb-4">INFORMATION</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="hover:text-gray-900 transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Cancellation Policy</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Help & FAQ</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a></li>
+              <li><a href="/blog" className="hover:text-gray-900 transition-colors">Blog</a></li>
+              <li><a href="/cancellation-policy" className="hover:text-gray-900 transition-colors">Cancellation Policy</a></li>
+              <li><a href="/help" className="hover:text-gray-900 transition-colors">Help & FAQ</a></li>
+              <li><a href="/privacy-policy" className="hover:text-gray-900 transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
           <div>
@@ -86,7 +86,7 @@ export default function Footer() {
           <a href="#" aria-label="Facebook">
             <FaFacebookF className="h-6 w-6 text-gray-700 hover:text-gray-900 transition-colors mt-20" />
           </a>
-          <a href="#" aria-label="Facebook">
+          <a href="‪+91 97736 90444‬" aria-label="Facebook">
             <FaWhatsapp className="h-6 w-6 text-gray-700 hover:text-gray-900 transition-colors mt-20" />
           </a>
           
